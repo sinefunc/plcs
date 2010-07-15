@@ -12,6 +12,6 @@
         %tr
           %th= feature
           - snippets.each do |language, code|
-            %td{class: to_slug(language)}
-              %pre{class: to_slug(language)}= code
+            %td{:class => to_slug(language)}
+              %pre{:class => to_slug(language)}= code
 
