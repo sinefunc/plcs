@@ -75,12 +75,12 @@
 
   - Getting the class:
     - Ruby: |
-        instance.class # => ClassNmae
+        instance.class #=> ClassNmae
     - Python: |
-        instance.__class__ # => ClassName
+        instance.__class__ #=> ClassName
     - PHP: |
         __CLASS__ // from within
-        get_class($instance) # => 'ClassName'
+        get_class($instance) #=> 'ClassName'
     - JavaScript: |
         // .prototype? dunno
 
@@ -404,24 +404,39 @@
 
   - Initializing (with contents):
     - Ruby: |
-        ['red', 'green']
-        %w[red green]
+        arr = [1, 2, 3]
+        # %w[red green]
     - Python: |
+        arr = [1, 2, 3]
         ['red', 'green']
     - PHP: |
-        array('red', 'green')
+        $arr = array(1, 2, 3);
     - JavaScript: |
-        // ...
+        var arr = [1, 2, 3];
+
+  - Length:
+    - Ruby: |
+        arr.size #=> 3
+    - Python: |
+        arr.length #=> 3
+    - PHP: |
+        count(arr) //=> 3
+    - JavaScript: |
+        arr.count //=> 3
 
   - Adding items:
     - Ruby: |
-        arr << item
+        arr << 4        #=>   [1,2,3,4]
+        arr.unshift(0)  #=> [0,1,2,3,4]
     - Python: |
-        arr.append(item)
+        arr.append(4)      #=>   [1,2,3,4]
+        arr.insert(0, 'X') #=> [X,1,2,3,4]
     - PHP: |
-        array_push($arr, $item);
+        array_push($arr, 4);     //=>   [1,2,3,4]
+        array_unshift($arr, 0);  //=> [0,1,2,3,4]
     - JavaScript: |
-        arr.push(0);
+        arr.push(4);    //=> [1,2,3,4]
+        arr.unshift(0); //=> [0,1,2,3,4]
 
   - Accessing items:
     - Ruby: |
@@ -432,6 +447,38 @@
         $arr[0]
     - JavaScript: |
         arr[0]
+
+  - Removing items:
+    - Ruby: |
+        arr.pop   #=> 4
+        arr       #=> [0,1,2,3]
+        arr.shift #=> 0
+        arr       #=> [1,2,3]
+    - Python: |
+        arr.pop()   #=> 4
+        arr         #=> [0,1,2,3]
+        arr.shift() #=> 0
+        arr         #=> [1,2,3]
+    - PHP: |
+        array_pop($arr);   //=> 3
+        $arr;              //=> [0,1,2,3]
+        array_shift($arr); //=> 0
+        $arr;              //=> [1,2,3]
+    - JavaScript: |
+
+  - Searching:
+    - Ruby: |
+        # .detect
+        # .empty? .any?
+    - Python: |
+    - PHP: |
+    - JavaScript: |
+
+  - Sorting:
+    - Ruby: |
+    - Python: |
+    - PHP: |
+    - JavaScript: |
 
 # ===============================================================================
 - Hashes:
@@ -670,30 +717,33 @@
     - Python: |
     - PHP: |
     - JavaScript: |
+        Math.floor(2.5) // 2
 
   - Exponents:
     - Ruby: |
-        2**8 # => 256
+        2**8 #=> 256
     - Python: |
+        import math
+        math.pow(2, 8) #=> 256
     - PHP: |
     - JavaScript: |
-        Math.pow(2, 8) # => 256
+        Math.pow(2, 8) #=> 256
 
   - Trigonometry:
     - Ruby: |
         # Radians assumed
         Math.sin(theta)
-        Math::PI
+        Math::PI #=> 3.14159...
     - Python: |
         # Radians assumed
         import math
         math.sin(theta)
-        math.pi
+        math.pi #=> 3.14159...
     - PHP: |
         // Radians assumed
         sin(theta)
         sin(deg2rad(angle))
-        pi() // or M_PI
+        pi() // or M_PI => 3.14159...
     - JavaScript: |
         Math.sin(theta)
-        Math.PI
+        Math.PI //=> 3.14159...
