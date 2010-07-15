@@ -25,7 +25,7 @@ class Main < Sinatra::Base
     end
 
     def get_languages(content)
-      ['Ruby', 'Python', 'PHP']
+      ['Ruby', 'Python', 'PHP', 'JavaScript']
     end
 
     def format_code(code, language)
