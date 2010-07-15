@@ -39,13 +39,10 @@
 
   - Multiple inheritance:
     - Ruby: |
-        # Not available
     - Python: |
         class ClassName(Parent1, Parent2):
     - PHP: |
-        // Not available
     - JavaScript: |
-        // Not available
 
   - Instanciation:
     - Ruby: |
@@ -140,7 +137,6 @@
     - Ruby: |
         $gvar = 1
     - Python: |
-        // Not available
     - PHP: |
         global $gvar;
         $gvar = 1;
@@ -194,7 +190,6 @@
             { return $this->attr; }
         }
     - JavaScript: |
-        // Not available
 
   - Setters:
     - Ruby: |
@@ -217,7 +212,6 @@
             { $this->attr = $val; }
         }
     - JavaScript: |
-        // Not available
 
   - Getting a property with an arbitrtary name:
     - Ruby: |
@@ -308,9 +302,7 @@
     - Python: |
         def __getitem__(self, i):
     - PHP: |
-        // Not available
     - JavaScript: |
-        // Not available
 
   - 'Missing attrib/method':
     - Ruby: |
@@ -322,11 +314,9 @@
         public function __set($attr, $v) {}
         public function __call($meth, $args) {}
     - JavaScript: |
-        // Not available
 
   - 'ClassName()':
     - Ruby: |
-        # Not available
     - Python: |
         # Calls the constructor
     - PHP: |
@@ -351,7 +341,6 @@
         print_r($obj)
         var_export($obj) // eval()able
     - JavaScript: |
-        // Not available
 
   - Overriding string representations:
     - Ruby: |
@@ -363,7 +352,6 @@
     - PHP: |
         public function __toString() { }
     - JavaScript: |
-        // Not available
 
 # ===============================================================================
 - Casting:
@@ -408,11 +396,20 @@
         # %w[red green]
     - Python: |
         arr = [1, 2, 3]
-        ['red', 'green']
     - PHP: |
         $arr = array(1, 2, 3);
     - JavaScript: |
         var arr = [1, 2, 3];
+
+  - Accessing items:
+    - Ruby: |
+        arr[0]
+    - Python: |
+        arr[0]
+    - PHP: |
+        $arr[0]
+    - JavaScript: |
+        arr[0]
 
   - Length:
     - Ruby: |
@@ -437,16 +434,6 @@
     - JavaScript: |
         arr.push(4);    //=> [1,2,3,4]
         arr.unshift(0); //=> [0,1,2,3,4]
-
-  - Accessing items:
-    - Ruby: |
-        arr[0]
-    - Python: |
-        arr[0]
-    - PHP: |
-        $arr[0]
-    - JavaScript: |
-        arr[0]
 
   - Removing items:
     - Ruby: |
@@ -550,7 +537,6 @@
           lambda acc, item: acc + item,
           mylist)
     - PHP: |
-        // Not available
     - JavaScript: |
         // underscore.js
         _.inject(mylist, function(acc, item) {
@@ -588,7 +574,6 @@
         basename()
         ...
     - JavaScript: |
-        // Not available
 
   - File existence check:
     - Ruby: |
@@ -598,7 +583,6 @@
     - PHP: |
         if (is_file($fname)) {}
     - JavaScript: |
-        // Not available
 
   - Is directory check:
     - Ruby: |
@@ -608,7 +592,6 @@
     - PHP: |
         if (is_dir(dname)) {}
     - JavaScript: |
-        // Not available
 
   - Quick reading:
     - Ruby: |
@@ -619,7 +602,6 @@
     - PHP: |
         $data = file_get_contents('f.txt');
     - JavaScript: |
-        // Not available
 
   - Quick writing:
     - Ruby: |
@@ -630,7 +612,6 @@
     - PHP: |
         file_put_contents('f.txt', $data);
     - JavaScript: |
-        // Not available
 
 # ===============================================================================
 - Printing:
@@ -673,7 +654,6 @@
     - PHP: |
         "Hi $name"
     - JavaScript: |
-        // Not available
 
   - 'Uppercase/lowercase':
     - Ruby: |
