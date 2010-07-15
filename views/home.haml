@@ -12,9 +12,12 @@
         - features.each do |hash|
           - hash.each do |feature, snippets|
             %tr
-              %th= feature
+              %th
+                %h4= feature
               - snippets.each do |hash|
                 - hash.each do |language, code|
-                  %td{:class => to_slug(language)}
-                    %pre{:class => to_slug(language)}= code
+                  - language = to_slug(language)
+                  %td{:class => language)}
+                    %pre{:class => language)}
+                      = format_code(code, language)
 

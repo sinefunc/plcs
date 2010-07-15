@@ -5,6 +5,7 @@ require "vendor/dependencies/lib/dependencies"
 require "haml"
 require "less"
 require "sinatra/base"
+require 'syntax/convertor/html'
 
 class Main < Sinatra::Base
   set :root, File.dirname(__FILE__)
@@ -20,11 +21,16 @@ class Main < Sinatra::Base
 
   helpers do
     def to_slug(str)
-      str.downcase.gsub(/^[a-z]/, '')
+      str.downcase.gsub(/[^a-z]/, '')
     end
 
     def get_languages(content)
       ['Ruby', 'Python', 'PHP']
+    end
+
+    def format_code(code, language)
+      conv = Syntax::Convertor::HTML.for_syntax language
+      conv.convert(code)
     end
   end
 end
