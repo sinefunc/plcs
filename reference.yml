@@ -296,7 +296,7 @@
 - Anonymous functions:
 # ===============================================================================
 
-  - 'Anonymous functions':
+  - Anonymous functions:
     - Ruby: |
         fn = lambda { |x| x+1 }
         fn = -> { |x| x+1 } # Ruby 1.9
@@ -488,7 +488,7 @@
     - JavaScript: |
 
 # ===============================================================================
-- Hashes:
+- Hashes/Dictionaries:
 # ===============================================================================
 
   - Initializing empty hashes:
@@ -503,16 +503,28 @@
 
   - Initializing with contents:
     - Ruby: |
-        { red: 1, green: 2 } # Ruby 1.9.x
         { :red => 1, :green => 2 } 
+        { red: 1, green: 2 } # Ruby 1.9
         Hash.new([['red',1], ['green',2]])
     - Python: |
-        { red: 1, green: 2 }
+        { 'red': 1, 'green': 2 }
         dict([['red',1], ['green',2]])
     - PHP: |
         array( 'red' => 1, 'green' => 2 )
     - JavaScript: |
         { red: 1, green: 2 }
+
+  - Iterating hashes:
+    - Ruby: |
+        hash.each do |key, val|
+    - Python: |
+        for key, val in dict.iteritems():
+    - PHP: |
+        foreach ($hash as $key => $val) {}
+        // Also array_walk()
+    - JavaScript: |
+        for (key in hash) {
+          var value = hash[key];
 
 # ===============================================================================
 - Enumerables:
@@ -562,19 +574,6 @@
         _.inject(mylist, function(acc, item) {
           // ...
         })
-
-  - Iterating hashes:
-    - Ruby: |
-        hash.each do |k, v|
-    - Python: |
-        for k in dict:
-          v = dict[k]
-    - PHP: |
-        foreach ($hash as $k => $v) {}
-        // Also array_walk()
-    - JavaScript: |
-        for (key in hash) {
-          var value = hash[key];
 
 # ===============================================================================
 - Files:
