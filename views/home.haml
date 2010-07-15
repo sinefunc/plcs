@@ -1,23 +1,31 @@
-- content.each do |hash|
-  - hash.each do |section, features|
-    %h2= section
-    %table
-      %thead
-        %tr
-          %th
-          - languages.each do |language|
-            %th= language
+%div.selector
+  - languages.each do |language|
+    - lang_code = to_slug(language)
+    %label
+      %input{ :type => 'checkbox', :name => lang_code }/
+      %span= language
 
-      %tbody
-        - features.each do |hash|
-          - hash.each do |feature, snippets|
-            %tr
-              %th
-                %h4= feature
-              - snippets.each do |hash|
-                - hash.each do |language, code|
-                  - language = to_slug(language)
-                  %td{:class => language}
-                    %pre{:class => language}
-                      = format_code(code, language)
+- content.each do |hash|
+  %section.preload
+    - hash.each do |section, features|
+      %h2= section
+      %table
+        %thead
+          %tr
+            %th
+            - languages.each do |language|
+              %th{ :class => to_slug(language) }= language
+
+        %tbody
+          - features.each do |hash|
+            - hash.each do |feature, snippets|
+              %tr
+                %th
+                  %h4= feature
+                - snippets.each do |hash|
+                  - hash.each do |language, code|
+                    - language = to_slug(language)
+                    %td{:class => language}
+                      %pre{:class => language}
+                        = format_code(code, language)
 

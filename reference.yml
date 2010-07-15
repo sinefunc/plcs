@@ -464,7 +464,8 @@
         foreach ($mylist as $item) {}
         // Also array_walk()
     - JavaScript: |
-        for (item in mylist) {}
+        for (i in mylist) {
+          var item = mylist[i];
 
   - Map:
     - Ruby: |
