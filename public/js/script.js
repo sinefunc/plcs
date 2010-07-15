@@ -11,10 +11,10 @@
         name = $(this).attr('name');
 
     if (v) {
-      $("." + name).show();
+      $("." + name).fadeIn('fast');
     }
     else {
-      $("." + name).hide();
+      $("." + name).fadeOut('fast');
     }
   });
 
