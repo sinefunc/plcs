@@ -1,15 +1,6 @@
-require "rubygems"
-require "rack/contrib"
-require "rack-rewrite"
+require "init"
 
-use Rack::Static, :urls => [/./], :root => "public"
-use Rack::Rewrite do
-  rewrite '/', '/index.html'
-end
+Main.set :run, false
+Main.set :environment, :production
 
-run lambda { |env|
-  [ 200,
-    { 'Content-Type' => 'text/html', 'Cache-Control' => 'public, max-age=86400' },
-    File.open('public/index.html', File::RDONLY)
-  ]
-}
+run Main

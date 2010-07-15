@@ -1,0 +1,7 @@
+haml 2.2.22 git://github.com/nex3/haml.git
+rack 1.1.0 git://github.com/rack/rack.git
+sinatra 1.0 git://github.com/sinatra/sinatra.git
+treetop 1.4.5
+polyglot 0.3.1
+mutter 0.5.3
+less 1.2.21 git://github.com/cloudhead/less.js.git

@@ -1,0 +1,530 @@
+---
+# ===============================================================================
+Classes:
+# ===============================================================================
+
+  Class:
+    Ruby: |
+      class ClassName
+        def meth
+          # ...
+        end
+      end
+    Python: |
+      class ClassName:
+        def meth(self):
+          # ...
+    PHP: |
+      class ClassName {
+        public function meth() {
+          // ...
+        }
+      }
+
+  Class inheritance:
+    Ruby: |
+      class ClassName < Parent
+    Python: |
+      class C(Parent):
+    PHP: |
+      class ClassName extends Parent
+
+  Multiple inheritance:
+    Ruby: |
+      # Not available
+    Python: |
+      class ClassName(Parent1, Parent2):
+    PHP: |
+      // Not available
+
+  Instanciation:
+    Ruby: |
+      instance = C.new
+      instance = C.new(args)
+    Python: |
+      instance = C()
+      instance = C(args)
+    PHP: |
+      $instance = new C();
+      $instance = new C($args);
+
+  Subclass checking:
+    Ruby: |
+      if instance.is_a?(ClassName)
+    Python: |
+      if isinstance(instance, ClassName):
+      # Also, issubclass(ClassName, Parent)
+    PHP: |
+      if ($instance instanceof ClassName)
+      if (is_instance_of($instance, ClassName))
+
+  Getting the class:
+    Ruby: |
+      instance.class # => C
+    Python: |
+      instance.__class__ # => C
+    PHP: |
+      __CLASS__ // from within
+      get_class($instance) // elsewhere
+
+  'Calling methods (from inside the class)':
+    Ruby: |
+      meth(args)
+    Python: |
+      self.meth(args)
+    PHP: |
+      $this->meth(args);
+
+  'Calling methods (elsewhere)':
+    Ruby: |
+      instance.meth
+      instance.meth(args)
+    Python: |
+      instance.meth()
+      instance.meth(args)
+    PHP: |
+      $instance->meth(args);
+
+  Calling class methods:
+    Ruby: |
+      ClassName.meth
+      ClassName.meth(args)
+    Python: |
+      ClassName.meth()
+      ClassName.meth(args)
+    PHP: |
+      ClassName::meth(args);
+
+# ===============================================================================
+Properties:
+# ===============================================================================
+
+  Instance variables:
+    Ruby: |
+      @var
+      # private
+    Python: |
+      self.var
+      # public
+    PHP: |
+      $this->var
+
+  Class variables:
+    Ruby: |
+      @@var
+      # private
+    Python: |
+      ClassName.var
+      # public
+    PHP: |
+      ClassName::$var
+      // Consider static vars instead
+
+  Getters:
+    Ruby: |
+      def attr
+        @attr
+      end
+
+      # or:
+      attr_reader :attr
+    Python: |
+      def get_attr(self):
+        return self._attr
+      attr = property(get_attr)
+    PHP: |
+      public function __get($key) {
+        if ($key == 'attr')
+          { return $this->attr; }
+      }
+
+  Setters:
+    Ruby: |
+      def attr=(val)
+        @attr = val
+      end
+
+      # or:
+      attr_writer :attr
+    Python: |
+      def set_attr(self, val):
+        self._attr = val
+      attr = property(None, set_attr)
+
+      # Also: property(getter, setter,
+      #                deleter, doc)
+      #
+    PHP: |
+      public function __set($key, $val) {
+        if ($key == 'attr')
+          { $this->attr = $val; }
+      }
+
+  Getting a property with an arbitrtary name:
+    Ruby: |
+      obj.send :attr
+      obj.send :'attr=', value
+    Python: |
+      getattr(obj, 'attr')
+      setattr(obj, 'attr', value)
+    PHP: |
+      $obj->{'attr'}
+      $obj->{'attr'} = $value;
+
+# ===============================================================================
+Constants:
+# ===============================================================================
+
+  Common constants:
+    Ruby: |
+      true
+      false
+      nil
+    Python: |
+      True
+      False
+      None
+    PHP: |
+      TRUE
+      FALSE
+      NULL
+
+# ===============================================================================
+Methods:
+# ===============================================================================
+
+  Declaring methods:
+    Ruby: |
+      def meth(args)
+        # ...
+      end
+    Python: |
+      def meth(self, args):
+        # ...
+    PHP: |
+      function meth(args) {
+      }
+
+  Constructor:
+    Ruby: |
+      def initialize
+    Python: |
+      def __init__(self):
+    PHP: |
+      public function __construct() {}
+
+  Static methods:
+    Ruby: |
+      def self.meth
+    Python: |
+      @classmethod
+      def meth(cls):
+    PHP: |
+      public static function meth() { }
+
+# ===============================================================================
+Overriding:
+# ===============================================================================
+
+  'inst[i]':
+    Ruby: |
+      def [](i)
+    Python: |
+      def __getitem__(self, i):
+    PHP: |
+      // Not available
+
+  'ins.attr':
+    Ruby: |
+      def method_missing(meth, args, ...)
+    Python: |
+      def __getattr__(self, attr):
+    PHP: |
+      public function __get($attr) {}
+      public function __set($attr, $v) {}
+      public function __call($meth, $args) {}
+
+  'ClassName()':
+    Ruby: |
+      # Not available
+    Python: |
+      # Calls the constructor
+    PHP: |
+      public function __invoke() {}
+
+# ===============================================================================
+String representation:
+# ===============================================================================
+
+  Getting string representations:
+
+    Ruby: |
+      obj.to_s
+      obj.inspect
+    Python: |
+      str(obj)
+      repr(obj) # Attempts to make
+                # eval()'able output
+    PHP: |
+      print_r($obj)
+      var_export($obj) // eval()able
+
+  Overriding string representations:
+    Ruby: |
+      def to_s
+      def inspect
+    Python: |
+      def __str__(self):
+      def __repr__(self):
+    PHP: |
+      public function __toString() { }
+
+# ===============================================================================
+Casting:
+# ===============================================================================
+
+  Casting:
+    Ruby: |
+      obj.to_s
+      obj.to_i
+      obj.to_f
+    Python: |
+      str(obj)
+      int(obj)
+      float(obj)
+      bool(obj)
+    PHP: |
+      (string) $obj
+      (int) $obj
+      (float) $obj
+      (bool) $obj
+
+# ===============================================================================
+Arrays:
+# ===============================================================================
+
+  Initializing (empty):
+    Ruby: |
+      arr = Array.new
+    Python: |
+      arr = list()
+    PHP: |
+      $arr = [];
+
+  Initializing (with contents):
+    Ruby: |
+      ['red', 'green']
+      %w[red green]
+    Python: |
+      ['red', 'green']
+    PHP: |
+      array('red', 'green')
+
+  Adding items:
+    Ruby: |
+      arr << item
+    Python: |
+      arr.append(item)
+    PHP: |
+      array_push($arr, $item);
+
+  Accessing items:
+    Ruby: |
+      arr[0]
+    Python: |
+      arr[0]
+    PHP: |
+      $arr[0]
+
+# ===============================================================================
+Hashes:
+# ===============================================================================
+
+  Initializing empty hashes:
+    Ruby: |
+      Hash.new()
+    Python: |
+      dict()
+    PHP: |
+      array()
+
+  Initializing with contents:
+    Ruby: |
+      { red: 1, green: 2 } # Ruby 1.9.x
+      { :red => 1, :green => 2 } 
+      Hash.new([['red',1], ['green',2]])
+    Python: |
+      { red: 1, green: 2 }
+      dict([['red',1], ['green',2]])
+    PHP: |
+      array( 'red' => 1, 'green' => 2 )
+
+# ===============================================================================
+Enumerables:
+# ===============================================================================
+
+  Iterating:
+    Ruby: |
+      mylist.each do |item|
+    Python: |
+      for item in mylist:
+    PHP: |
+      foreach ($mylist as $item) {}
+      // Also array_walk()
+
+  Map:
+    Ruby: |
+      mylist.map do |item|
+        expr(item)
+      end
+    Python: |
+      map(lambda item: expr(item), mylist)
+      # or:
+      [expr(item) for item in mylist]
+    PHP: |
+      array_map($mylist, 'callback')
+
+  Inject:
+    Ruby: |
+      mylist.inject do |acc, item|
+        acc + item; acc
+      end
+    Python: |
+      reduce(
+        lambda acc, item: acc + item,
+        mylist)
+    PHP: |
+      // Not available
+
+  Hash iterating:
+    Ruby: |
+      hash.each do |k, v|
+    Python: |
+      for k in dict:
+        v = dict[k]
+    PHP: |
+      foreach ($hash as $k => $v) {}
+      // Also array_walk()
+
+# ===============================================================================
+Files:
+# ===============================================================================
+
+  Stuff:
+    Ruby: |
+      File.join('dir', 'file')
+      File.dirname
+      File.dirname(__FILE__)
+      ...
+    Python: |
+      os.path.join('dir', 'file')
+      os.path.split('dir/sub/file.txt')[0]
+      os.path.split('dir/sub/file.txt')[1]
+    PHP: |
+      basename()
+      ...
+
+  File existence check:
+    Ruby: |
+      if File.exists?(fname)
+    Python: |
+      if os.path.isfile(fname):
+    PHP: |
+      if (is_file($fname)) {}
+
+  Is directory check:
+    Ruby: |
+      File.directory?(dname)
+    Python: |
+      if os.path.isdir(dname):
+    PHP: |
+      if (is_dir(dname)) {}
+
+  Quick reading:
+    Ruby: |
+      data = File.open('f.txt') { |f| f.read }
+    Python: |
+      with open('f.txt', 'r') as f:
+        data = f.read()
+    PHP: |
+      $data = file_get_contents('f.txt');
+
+  Quick writing:
+    Ruby: |
+      File.open('f.txt', 'w') { |f| f << data }
+    Python: |
+      with open('f.txt', 'w') as f:
+        f.write(data)
+    PHP: |
+      file_put_contents('f.txt', $data);
+
+# ===============================================================================
+Printing:
+# ===============================================================================
+
+  Printing:
+    Ruby: |
+      puts "hello"
+      p "hello"
+    Python: |
+      print "hello"
+    PHP: |
+      echo "hello";
+      print "hello";
+
+  Error output:
+    Ruby: |
+      $STDERR << "Error\n"
+    Python: |
+      sys.stderr.write("Error\n")
+    PHP: |
+      fwrite(STDERR, "Error\n");
+
+# ===============================================================================
+Strings:
+# ===============================================================================
+
+  Interpolation:
+    Ruby: |
+      "Hi #{name}"
+      'Hi %s' % name
+      'Hi %{name}' % {name: name}
+    Python: |
+      'Hi %s' % name
+      'Hi %{name}' % {name: name}
+    PHP: |
+      "Hi $name"
+
+  'Uppercase/lowercase':
+    Ruby: |
+      "Hey".downcase
+      "Hey".upcase
+    Python: |
+      "Hey".upper
+      "Hey".lower
+    PHP: |
+      strtolower("Hey")
+      strtoupper("Hey")
+
+  Substring:
+    Ruby: |
+      str = "Hello world"
+      str[1...5] # 'ello'
+      str[-5..-1] # 'world'
+    Python: |
+      str = "Hello world"
+      str[1:5] # 'ello'
+      str[-5:] # 'world'
+    PHP: |
+      $str = "Hello world"
+      substr($str, 1, 5) # 'ello'
+      substr($str, -1, 5) # 'world'
+
+# ===============================================================================
+Numbers:
+# ===============================================================================
+
+  Rounding off: 
+    Ruby: |
+    Python: |
+    PHP: |

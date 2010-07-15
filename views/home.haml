@@ -1,0 +1,17 @@
+- content.each do |section, features|
+  %h2= section
+  %table
+    %thead
+      %tr
+        %th
+        - languages.each do |language|
+          %th= language
+
+    %tbody
+      - features.each do |feature, snippets|
+        %tr
+          %th= feature
+          - snippets.each do |language, code|
+            %td{class: to_slug(language)}
+              %pre{class: to_slug(language)}= code
+
