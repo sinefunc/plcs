@@ -672,20 +672,20 @@
   - Substring:
     - Ruby: |
         str = "Hello world"
-        str[1...5] # 'ello'
-        str[-5..-1] # 'world'
+        str[1...5]   #=> 'ello'
+        str[-5..-1]  #=> 'world'
     - Python: |
         str = "Hello world"
-        str[1:5] # 'ello'
-        str[-5:] # 'world'
+        str[1:5]  #=> 'ello'
+        str[-5:]  #=> 'world'
     - PHP: |
         $str = "Hello world";
-        substr($str, 1, 5) # 'ello'
-        substr($str, -1, 5) # 'world'
+        substr($str, 1, 5)   #=> 'ello'
+        substr($str, -1, 5)  #=> 'world'
     - JavaScript: |
         str = "Hello world";
-        substr(str, 1, 5) // 'ello'
-        substr(str, -1, 5) // 'world'
+        substr(str, 1, 5)   //=> 'ello'
+        substr(str, -1, 5)  //=> 'world'
         // str.substr(n, n) also works
 
 # ===============================================================================
