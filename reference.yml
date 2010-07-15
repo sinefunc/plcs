@@ -288,9 +288,9 @@
         @classmethod
         def meth(cls):
     - PHP: |
-        public static function meth() { }
+        public static function meth() {}
     - JavaScript: |
-        // ...
+        Class.meth = function(args) {}
 
 # ===============================================================================
 - Overriding:
