@@ -136,6 +136,17 @@
         var myvar = 1;
         myvar
 
+  - Global variables:
+    - Ruby: |
+        $gvar = 1
+    - Python: |
+        // Not available
+    - PHP: |
+        global $gvar;
+        $gvar = 1;
+    - JavaScript: |
+        window.gvar = 1;
+
   - Instance variables:
     - Ruby: |
         @var
