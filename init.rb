@@ -24,11 +24,7 @@ class Main < Sinatra::Base
     end
 
     def get_languages(content)
-      content.each do |section, features|
-        features.each do |feature, snippets|
-          return snippets.keys
-        end
-      end
+      ['Ruby', 'Python', 'PHP']
     end
   end
 end
