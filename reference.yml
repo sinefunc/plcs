@@ -21,7 +21,7 @@
           }
         }
     - JavaScript: |
-        // Many ways; usual way:
+        // Many ways; this one's used often:
         ClassName = function() {
           this.meth = function() { /* ... */ }
           return this;
@@ -211,7 +211,6 @@
 
         # Also: property(getter, setter,
         #                deleter, doc)
-        #
     - PHP: |
         public function __set($key, $val) {
           if ($key == 'attr')
@@ -231,7 +230,7 @@
         $obj->{'attr'}
         $obj->{'attr'} = $value;
     - JavaScript: |
-        obj['attr'] # same as obj.attr
+        obj['attr'] // same as obj.attr
 
 # ===============================================================================
 - Constants:
