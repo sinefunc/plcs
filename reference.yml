@@ -681,8 +681,11 @@
         "Hey".downcase
         "Hey".upcase
     - Python: |
-        "Hey".upper
-        "Hey".lower
+        "Hey".upper()
+        "Hey".lower()
+        "hey you".title()       #=> 'Hey You'
+        "hey you".capitalize()  #=> 'Hey you'
+        "Hey you".swapcase()
     - PHP: |
         strtolower("Hey")
         strtoupper("Hey")
@@ -690,24 +693,48 @@
         "Hey".toUpperCase()
         "Hey".toLowerCase()
 
+  - String length:
+    - Ruby: |
+        "Hello".size
+    - Python: |
+        len("Hello")
+    - PHP: |
+        strlen("Hello")
+    - JavaScript: |
+        "Hello".length
+
   - Substring:
     - Ruby: |
         str = "Hello world"
         str[1...5]   #=> 'ello'
         str[-5..-1]  #=> 'world'
+        str[0...-4]  #=> 'Hello w'
     - Python: |
         str = "Hello world"
         str[1:5]  #=> 'ello'
         str[-5:]  #=> 'world'
+        str[0:-4] #=> 'Hello w'
     - PHP: |
         $str = "Hello world";
-        substr($str, 1, 5)   #=> 'ello'
-        substr($str, -1, 5)  #=> 'world'
+        substr($str, 1, 4)   //=> 'ello'
+        substr($str, -5)     //=> 'world'
+        substr($str, 0, -4)  //=> 'Hello w'
     - JavaScript: |
         str = "Hello world";
-        substr(str, 1, 5)   //=> 'ello'
-        substr(str, -1, 5)  //=> 'world'
+        substr(str, 1, 4)   //=> 'ello'
+        substr(str, -5)     //=> 'world'
+        substr(str, 0, str.length-4)
         // str.substr(n, n) also works
+
+  - Replacing:
+    - Ruby: |
+        'Hi'.gsub('i', 'ey')
+    - Python: |
+        'Hi'.replace('i', 'ey')
+    - PHP: |
+        str_replace('Hi', 'i', 'ey')
+    - JavaScript: |
+        'Hi'.split('i').join('ey')
 
 # ===============================================================================
 - Numbers:
