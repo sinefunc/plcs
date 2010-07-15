@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Your new Hyde site</title>
+  </head>
+  <body>
+    <style>
+      h2 { text-align: center; font-size: 1.1em; }
+      table { width: 70%; margin: 0 auto; }
+      th, td { text-align: left; vertical-align: top; border: dotted 1px #ccc; padding: 10px; }
+      pre { padding: 0; margin: 0; }
+      tr > th:first-child { text-align: right; }
+      th { font-size: 0.8em; color: #aaa; }
+      
+      tr > th:first-child { width: 20%; }
+      tr > th + td { width: 40%; }
+      tr > th + td + td { width: 40%; }
+    </style>
+    <h2>Classes</h2>
+    <table>
+      <tr>
+        <th></th>
+        <th>Ruby</th>
+        <th>Python</th>
+      </tr>
+      <tr>
+        <th>Class</th>
+        <td>
+          <pre class='ruby'>class C&#x000A;  # ...&#x000A;end&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>class C:&#x000A;  # ...&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Class inheritance</th>
+        <td>
+          <pre class='ruby'>class C < Parent&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>class C(Parent):&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Multiple inheritance</th>
+        <td>
+          <pre class='ruby'>&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>class C(Parent1, Parent2):&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Instanciation</th>
+        <td>
+          <pre class='ruby'>instance = C.new&#x000A;instance = C.new(args)&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>instance = C()&#x000A;instance = C(args)&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Declaring methods</th>
+        <td>
+          <pre class='ruby'> def meth(args)&#x000A;   # ...&#x000A; end&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'> def meth(self, args):&#x000A;   # ...&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Subclass checking</th>
+        <td>
+          <pre class='ruby'> if instance.is_a?(C)&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'> if isinstance(instance, C):&#x000A; # Also, issubclass(C, Parent)&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Getting the class</th>
+        <td>
+          <pre class='ruby'>instance.class # => C&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>instance.__class__ # => C&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Calling methods (from inside the class)</th>
+        <td>
+          <pre class='ruby'>meth(args)</pre>
+        </td>
+        <td>
+          <pre class='python'>self.meth(args)&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Calling methods (elsewhere)</th>
+        <td>
+          <pre class='ruby'>instance.meth&#x000A;instance.meth(args)&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>instance.meth()&#x000A;instance.meth(args)&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Calling class methods</th>
+        <td>
+          <pre class='ruby'>C.meth&#x000A;C.meth(args)&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>C.meth()&#x000A;C.meth(args)&#x000A;</pre>
+        </td>
+      </tr>
+    </table>
+    <h2>Properties</h2>
+    <table>
+      <tr>
+        <th>Instance variables</th>
+        <td>
+          <pre class='ruby'>@var&#x000A;# private</pre>
+        </td>
+        <td>
+          <pre class='python'>self.var&#x000A;# public&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Class variables</th>
+        <td>
+          <pre class='ruby'>@@var&#x000A;# private</pre>
+        </td>
+        <td>
+          <pre class='python'>ClassName.var&#x000A;# public&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Getters</th>
+        <td>
+          <pre class='ruby'>def attr&#x000A;  @attr&#x000A;end&#x000A;&#x000A;# or:&#x000A;attr_reader :attr</pre>
+        </td>
+        <td>
+          <pre class='python'>def get_attr(self):&#x000A;  return self._attr&#x000A;attr = property(get_attr)&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Setters</th>
+        <td>
+          <pre class='ruby'>def attr=(val)&#x000A;  @attr = val&#x000A;end&#x000A;&#x000A;# or:&#x000A;attr_writer :attr</pre>
+        </td>
+        <td>
+          <pre class='python'>def set_attr(self, val):&#x000A;  self._attr = val&#x000A;attr = property(None, set_attr)&#x000A;&#x000A;# Also: property(getter, setter,&#x000A;#                deleter, doc)&#x000A;&#x000A;</pre>
+        </td>
+      </tr>
+    </table>
+    <h2>Methods</h2>
+    <table>
+      <tr>
+        <th>String representation</th>
+        <td>
+          <pre class='ruby'>obj.to_s&#x000A;obj.inspect&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>str(obj)&#x000A;repr(obj) # Attempts to make&#x000A;          # eval()'able output&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Constructor</th>
+        <td>
+          <pre class='ruby'>def initialize&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>def __init__(self):&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Static methods</th>
+        <td>
+          <pre class='ruby'>def self.meth&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>@classmethod&#x000A;def meth(cls):&#x000A;</pre>
+        </td>
+      </tr>
+    </table>
+    <h2>Overriding</h2>
+    <table>
+      <tr>
+        <th>String representations</th>
+        <td>
+          <pre class='ruby'>def to_s&#x000A;def inspect&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>def __str__(self):&#x000A;def __repr__(self):&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>inst[i]</th>
+        <td>
+          <pre class='ruby'>def [](i)&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>def __getitem(self, i):&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          ins.attr
+        </th>
+        <td>
+          <pre class='ruby'>def method_missing(...)&#x000A;</pre>
+        </td>
+        <td>
+          <pre class='python'>def __getattr(self, attr):&#x000A;</pre>
+        </td>
+      </tr>
+    </table>
+    <h2>Arrays</h2>
+    <table>
+      <tr>
+        <th>Adding items</th>
+        <td>
+          <pre class='ruby'>arr << item</pre>
+        </td>
+        <td>
+          <pre class='python'>arr.append(item)&#x000A;</pre>
+        </td>
+      </tr>
+    </table>
+    <h2>Enumerables</h2>
+    <table>
+      <tr>
+        <th>Iterating</th>
+        <td>
+          <pre class='ruby'>list.each do |item|</pre>
+        </td>
+        <td>
+          <pre class='python'>for item in list:&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Map</th>
+        <td>
+          <pre class='ruby'>list.map do |item|&#x000A;  expr(item)&#x000A;end</pre>
+        </td>
+        <td>
+          <pre class='python'>map(lambda item: expr(item), list)&#x000A;# or:&#x000A;[expr(item) for item in list]&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Inject</th>
+        <td>
+          <pre class='ruby'>list.inject do |acc, item|&#x000A;  acc + item&#x000A;end</pre>
+        </td>
+        <td>
+          <pre class='python'>reduce(&#x000A;  lambda acc, item: acc + item,&#x000A;  list)&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Hash iterating</th>
+        <td>
+          <pre class='ruby'>hash.each do |k, v|</pre>
+        </td>
+        <td>
+          <pre class='python'>for k in dict:&#x000A;  v = dict[k]&#x000A;</pre>
+        </td>
+      </tr>
+    </table>
+    <h2>Files</h2>
+    <h2>Strings</h2>
+    <h2>Regex</h2>
+    <div id='footer'>
+      <hr />
+    </div>
+  </body>
+</html>
