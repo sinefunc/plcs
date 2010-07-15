@@ -494,6 +494,50 @@
       </tr>
     </table>
     <h2>Files</h2>
+    <table>
+      <tr>
+        <th></th>
+        <th class='ruby'>Ruby</th>
+        <th class='python'>Python</th>
+        <th class='php'>PHP</th>
+      </tr>
+      <tr>
+        <th>Stuff</th>
+        <td class='ruby'>
+          <pre class='ruby'>File.join('dir', 'file')&#x000A;File.dirname&#x000A;File.dirname(__FILE__)&#x000A;...&#x000A;</pre>
+        </td>
+        <td class='python'>
+          <pre class='python'>os.path.join('dir', 'file')&#x000A;os.path.split('dir/sub/file.txt')[0]&#x000A;os.path.split('dir/sub/file.txt')[1]&#x000A;</pre>
+        </td>
+        <td class='php'>
+          <pre class='php'>basename()&#x000A;...&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>File existence check</th>
+        <td class='ruby'>
+          <pre class='ruby'>if File.exists?(fname)</pre>
+        </td>
+        <td class='python'>
+          <pre class='python'>if os.path.isfile(fname):</pre>
+        </td>
+        <td class='php'>
+          <pre class='php'>if (is_file($fname)) {}</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Is directory check</th>
+        <td class='ruby'>
+          <pre class='ruby'>File.directory?(dname)</pre>
+        </td>
+        <td class='python'>
+          <pre class='python'>if os.path.isdir(dname):</pre>
+        </td>
+        <td class='php'>
+          <pre class='php'>if (is_dir(dname)) {}</pre>
+        </td>
+      </tr>
+    </table>
     <h2>Strings</h2>
     <h2>Regex</h2>
     <div id='footer'>

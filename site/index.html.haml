@@ -747,6 +747,67 @@ title: Your new Hyde site
 
 %h2 Files
 
+%table
+  %tr
+    %th 
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
+
+  %tr
+    %th Stuff
+
+    %td.ruby
+      %pre.ruby
+        :preserve
+          File.join('dir', 'file')
+          File.dirname
+          File.dirname(__FILE__)
+          ...
+
+    %td.python
+      %pre.python
+        :preserve
+          os.path.join('dir', 'file')
+          os.path.split('dir/sub/file.txt')[0]
+          os.path.split('dir/sub/file.txt')[1]
+
+    %td.php
+      %pre.php
+        :preserve
+          basename()
+          ...
+
+  %tr
+    %th File existence check
+
+    %td.ruby
+      %pre.ruby
+        if File.exists?(fname)
+
+    %td.python
+      %pre.python
+        if os.path.isfile(fname):
+
+    %td.php
+      %pre.php
+        if (is_file($fname)) {}
+
+  %tr
+    %th Is directory check
+
+    %td.ruby
+      %pre.ruby
+        File.directory?(dname)
+
+    %td.python
+      %pre.python
+        if os.path.isdir(dname):
+
+    %td.php
+      %pre.php
+        if (is_dir(dname)) {}
+
 %h2 Strings
 
 %h2 Regex
