@@ -736,6 +736,20 @@
     - JavaScript: |
         'Hi'.split('i').join('ey')
 
+  - Finding:
+    - Ruby: |
+        'Hi'.include?('i')  #=> true
+    - Python: |
+        'Hi'.find('i')
+        'Hi'.find('o')  #=> -1
+    - PHP: |
+        strchr()
+        strpos('Hi', 'i')
+        strpos('Hi', 'o') //=> -1
+    - JavaScript: |
+        'Hi'.indexOf('i')
+        'Hi'.indexOf('o')  //=> -1
+
 # ===============================================================================
 - Numbers:
 # ===============================================================================
