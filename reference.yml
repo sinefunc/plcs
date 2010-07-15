@@ -12,7 +12,7 @@
         end
     - Python: |
         class ClassName:
-          - def meth(self):
+          def meth(self):
             # ...
     - PHP: |
         class ClassName {
