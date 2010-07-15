@@ -1,0 +1,100 @@
+#!/usr/bin/env ruby
+# CodeRay Executable
+#
+# Version: 0.2
+# Author: murphy
+
+def err msg
+  $stderr.puts msg
+end
+
+def read
+  if file = ARGV[2]
+    File.read file
+  else
+    $stdin.read
+  end
+end
+
+begin
+  require 'coderay'
+
+  if ARGV.empty?
+    puts <<-USAGE
+CodeRay #{CodeRay::VERSION} (http://coderay.rubychan.de)
+
+Usage:
+  coderay -<lang> [-<format>] < file > output
+  coderay file [-<format>]
+
+Examples:
+  coderay -ruby -statistic < foo.rb
+  coderay -ruby < foo.rb  # colorized output to terminal
+  coderay -ruby -page foo.rb  # HTML page output to terminal
+  coderay -ruby -page foo.rb > foo.html  # HTML page output to file
+  coderay codegen.c  # generates codegen.c.html
+    USAGE
+  end
+
+  first, second = ARGV
+
+  if first
+    if first[/-(\w+)/] == first
+      lang = $1
+      input = read
+      tokens = :scan
+    elsif first == '-'
+      lang = $1
+      input = read
+      tokens = :scan
+    else
+      file = first
+      tokens = CodeRay.scan_file file
+      output_filename, output_ext = file, /#{Regexp.escape(File.extname(file))}$/
+    end
+  else
+    puts 'No lang/file given.'
+    exit 1
+  end
+
+  if second
+    if second[/-(\w+)/] == second
+      format = $1
+    else
+      raise 'invalid format (must be -xxx)'
+    end
+  else
+    if $stdout.tty?
+      format = :term
+    else
+      $stderr.puts 'No format given; setting to default (HTML Page).'
+      format = :page
+    end
+  end
+  
+  # TODO: allow streaming
+  if tokens == :scan
+    output = CodeRay::Duo[lang => format].highlight input  #, :stream => true
+  else
+    output = tokens.encode format
+  end
+  out = $stdout
+  if output_filename
+    output_filename += '.' + CodeRay::Encoders[format]::FILE_EXTENSION
+    if File.exist? output_filename
+      err 'File %s already exists.' % output_filename
+      exit
+    else
+      out = File.open output_filename, 'w'
+      puts "Writing to #{output_filename}..."
+    end
+  end
+  out.puts output
+
+rescue => boom
+  err "Error: #{boom.message}\n"
+  err boom.backtrace
+  err '-' * 50
+  err ARGV
+  exit 1
+end

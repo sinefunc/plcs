@@ -17,7 +17,7 @@
               - snippets.each do |hash|
                 - hash.each do |language, code|
                   - language = to_slug(language)
-                  %td{:class => language)}
-                    %pre{:class => language)}
+                  %td{:class => language}
+                    %pre{:class => language}
                       = format_code(code, language)
 

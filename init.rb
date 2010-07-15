@@ -5,7 +5,7 @@ require "vendor/dependencies/lib/dependencies"
 require "haml"
 require "less"
 require "sinatra/base"
-require 'syntax/convertor/html'
+require "coderay"
 
 class Main < Sinatra::Base
   set :root, File.dirname(__FILE__)
@@ -29,8 +29,7 @@ class Main < Sinatra::Base
     end
 
     def format_code(code, language)
-      conv = Syntax::Convertor::HTML.for_syntax language
-      conv.convert(code)
+      CodeRay.scan(code, language.to_sym).span.gsub("\n", "<br>")
     end
   end
 end
