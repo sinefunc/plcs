@@ -6,16 +6,22 @@
 html, body { margin: 0; padding: 0; }
 body { font-size: 11pt; font-family: helvetica, arial, sans-serif; line-height: 13pt; }
 body { padding-top: 40px; } 
-h2 { text-align: center; font-size: 1.1em; margin: 0; padding: 20px 0; }
+h2 { text-align: center; font-size: 1.1em; margin: 0; padding: 30px 0 0 0; }
 table { margin: 0 auto; table-layout: fixed; border-spacing: 8px; }
 th, td { text-align: left; vertical-align: top; padding: 10px 5px; }
 pre { padding: 0; margin: 0; font-size: 9pt; width: 300px; }
 th { font-size: 0.8em; color: #aaa; padding: 0; text-align: center; }
 th:first-child { text-align: right; vertical-align: middle; }
-h4 { width: 175px; margin: 0; padding: 0; font-size: 1em; }
+h4 { width: 175px; margin: 0; padding: 0; font-size: 1em; font-weight: normal; margin-right: 20px;  }
 
 td { padding: 9px; background: #f8f8f8; -webkit-border-radius: 4px; }
 
+/* Hide headers */
+thead tr { visibility: hidden; }
+table:hover thead tr { visibility: visible; }
+thead strong { position: relative; top: 10px; }
+
+/* Colors */
 td.ruby   { background: #faf6f6; }
 td.python { background: #f0faf3; }
 td.php    { background: #f0f3fa; }

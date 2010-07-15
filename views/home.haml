@@ -14,7 +14,8 @@
           %tr
             %th
             - languages.each do |language|
-              %th{ :class => to_slug(language) }= language
+              %th{ :class => to_slug(language) }
+                %strong= language
 
         %tbody
           - features.each do |hash|
