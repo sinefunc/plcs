@@ -254,7 +254,6 @@
         false
         null
         undefined
-        NaN
 
 # ===============================================================================
 - Methods:
@@ -501,7 +500,7 @@
         end
     - Python: |
         reduce(
-          - lambda acc, item: acc + item,
+          lambda acc, item: acc + item,
           mylist)
     - PHP: |
         // Not available
@@ -511,7 +510,7 @@
           // ...
         })
 
-  - Hash iterating:
+  - Iterating hashes:
     - Ruby: |
         hash.each do |k, v|
     - Python: |
@@ -666,8 +665,35 @@
 - Numbers:
 # ===============================================================================
 
-  - Rounding off: 
+  - Rounding off:
     - Ruby: |
     - Python: |
     - PHP: |
     - JavaScript: |
+
+  - Exponents:
+    - Ruby: |
+        2**8 # => 256
+    - Python: |
+    - PHP: |
+    - JavaScript: |
+        Math.pow(2, 8) # => 256
+
+  - Trigonometry:
+    - Ruby: |
+        # Radians assumed
+        Math.sin(theta)
+        Math::PI
+    - Python: |
+        # Radians assumed
+        import math
+        math.sin(theta)
+        math.pi
+    - PHP: |
+        // Radians assumed
+        sin(theta)
+        sin(deg2rad(angle))
+        pi() // or M_PI
+    - JavaScript: |
+        Math.sin(theta)
+        Math.PI
