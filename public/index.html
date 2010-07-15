@@ -73,18 +73,6 @@
         </td>
       </tr>
       <tr>
-        <th>Declaring methods</th>
-        <td class='ruby'>
-          <pre class='ruby'>def meth(args)&#x000A;  # ...&#x000A;end&#x000A;</pre>
-        </td>
-        <td class='python'>
-          <pre class='python'>def meth(self, args):&#x000A;  # ...&#x000A;</pre>
-        </td>
-        <td class='php'>
-          <pre class='php'>function meth(args) {&#x000A;}&#x000A;</pre>
-        </td>
-      </tr>
-      <tr>
         <th>Subclass checking</th>
         <td class='ruby'>
           <pre class='ruby'>if instance.is_a?(ClassName)&#x000A;</pre>
@@ -231,15 +219,15 @@
         <th class='php'>PHP</th>
       </tr>
       <tr>
-        <th>String representation</th>
+        <th>Declaring methods</th>
         <td class='ruby'>
-          <pre class='ruby'>obj.to_s&#x000A;obj.inspect&#x000A;</pre>
+          <pre class='ruby'>def meth(args)&#x000A;  # ...&#x000A;end&#x000A;</pre>
         </td>
         <td class='python'>
-          <pre class='python'>str(obj)&#x000A;repr(obj) # Attempts to make&#x000A;          # eval()'able output&#x000A;</pre>
+          <pre class='python'>def meth(self, args):&#x000A;  # ...&#x000A;</pre>
         </td>
         <td class='php'>
-          <pre class='php'>print_r($obj)&#x000A;var_export($obj) // eval()'able&#x000A;</pre>
+          <pre class='php'>function meth(args) {&#x000A;}&#x000A;</pre>
         </td>
       </tr>
       <tr>
@@ -274,18 +262,6 @@
         <th class='ruby'>Ruby</th>
         <th class='python'>Python</th>
         <th class='php'>PHP</th>
-      </tr>
-      <tr>
-        <th>String representations</th>
-        <td class='ruby'>
-          <pre class='ruby'>def to_s&#x000A;def inspect&#x000A;</pre>
-        </td>
-        <td class='python'>
-          <pre class='python'>def __str__(self):&#x000A;def __repr__(self):&#x000A;</pre>
-        </td>
-        <td class='php'>
-          <pre class='php'>public function __toString() { }&#x000A;</pre>
-        </td>
       </tr>
       <tr>
         <th>inst[i]</th>
@@ -325,6 +301,60 @@
         </td>
         <td class='php'>
           <pre class='php'>public function __invoke() {}&#x000A;</pre>
+        </td>
+      </tr>
+    </table>
+    <h2>String representation</h2>
+    <table>
+      <tr>
+        <th></th>
+        <th class='ruby'>Ruby</th>
+        <th class='python'>Python</th>
+        <th class='php'>PHP</th>
+      </tr>
+      <tr>
+        <th>Getting string representations</th>
+        <td class='ruby'>
+          <pre class='ruby'>obj.to_s&#x000A;obj.inspect&#x000A;</pre>
+        </td>
+        <td class='python'>
+          <pre class='python'>str(obj)&#x000A;repr(obj) # Attempts to make&#x000A;          # eval()'able output&#x000A;</pre>
+        </td>
+        <td class='php'>
+          <pre class='php'>print_r($obj)&#x000A;var_export($obj) // eval()'able&#x000A;</pre>
+        </td>
+      </tr>
+      <tr>
+        <th>Overriding string representations</th>
+        <td class='ruby'>
+          <pre class='ruby'>def to_s&#x000A;def inspect&#x000A;</pre>
+        </td>
+        <td class='python'>
+          <pre class='python'>def __str__(self):&#x000A;def __repr__(self):&#x000A;</pre>
+        </td>
+        <td class='php'>
+          <pre class='php'>public function __toString() { }&#x000A;</pre>
+        </td>
+      </tr>
+    </table>
+    <h2>Casting</h2>
+    <table>
+      <tr>
+        <th></th>
+        <th class='ruby'>Ruby</th>
+        <th class='python'>Python</th>
+        <th class='php'>PHP</th>
+      </tr>
+      <tr>
+        <th>Casting</th>
+        <td class='ruby'>
+          <pre class='ruby'>obj.to_s&#x000A;obj.to_i&#x000A;obj.to_f&#x000A;</pre>
+        </td>
+        <td class='python'>
+          <pre class='python'>str(obj)&#x000A;int(obj)&#x000A;float(obj)&#x000A;bool(obj)&#x000A;</pre>
+        </td>
+        <td class='php'>
+          <pre class='php'>(string) $obj&#x000A;(int) $obj&#x000A;(float) $obj&#x000A;(bool) $obj&#x000A;</pre>
         </td>
       </tr>
     </table>

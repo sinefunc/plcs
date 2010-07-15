@@ -103,28 +103,6 @@ title: Your new Hyde site
           $instance = new C($args);
          
   %tr
-    %th Declaring methods
-
-    %td.ruby
-      %pre.ruby
-        :preserve
-          def meth(args)
-            # ...
-          end
-
-    %td.python
-      %pre.python
-        :preserve
-          def meth(self, args):
-            # ...
-
-    %td.php
-      %pre.php
-        :preserve
-          function meth(args) {
-          }
-
-  %tr
     %th Subclass checking
 
     %td.ruby
@@ -363,26 +341,26 @@ title: Your new Hyde site
     %th.php PHP
 
   %tr
-    %th String representation
-    
+    %th Declaring methods
+
     %td.ruby
       %pre.ruby
         :preserve
-          obj.to_s
-          obj.inspect
+          def meth(args)
+            # ...
+          end
 
     %td.python
       %pre.python
         :preserve
-          str(obj)
-          repr(obj) # Attempts to make
-                    # eval()'able output
+          def meth(self, args):
+            # ...
 
     %td.php
       %pre.php
         :preserve
-          print_r($obj)
-          var_export($obj) // eval()'able
+          function meth(args) {
+          }
 
   %tr
     %th Constructor
@@ -429,26 +407,6 @@ title: Your new Hyde site
     %th.ruby Ruby
     %th.python Python
     %th.php PHP
-
-  %tr
-    %th String representations
-
-    %td.ruby
-      %pre.ruby
-        :preserve
-          def to_s
-          def inspect
-
-    %td.python
-      %pre.python
-        :preserve
-          def __str__(self):
-          def __repr__(self):
-
-    %td.php
-      %pre.php
-        :preserve
-          public function __toString() { }
 
   %tr
     %th inst[i]
@@ -507,6 +465,92 @@ title: Your new Hyde site
       %pre.php
         :preserve
           public function __invoke() {}
+
+%h2 String representation
+
+%table
+  %tr
+    %th 
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
+
+  %tr
+    %th Getting string representations
+    
+    %td.ruby
+      %pre.ruby
+        :preserve
+          obj.to_s
+          obj.inspect
+
+    %td.python
+      %pre.python
+        :preserve
+          str(obj)
+          repr(obj) # Attempts to make
+                    # eval()'able output
+
+    %td.php
+      %pre.php
+        :preserve
+          print_r($obj)
+          var_export($obj) // eval()'able
+
+  %tr
+    %th Overriding string representations
+
+    %td.ruby
+      %pre.ruby
+        :preserve
+          def to_s
+          def inspect
+
+    %td.python
+      %pre.python
+        :preserve
+          def __str__(self):
+          def __repr__(self):
+
+    %td.php
+      %pre.php
+        :preserve
+          public function __toString() { }
+
+%h2 Casting
+
+%table
+  %tr
+    %th 
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
+
+  %tr
+    %th Casting
+
+    %td.ruby
+      %pre.ruby
+        :preserve
+          obj.to_s
+          obj.to_i
+          obj.to_f
+
+    %td.python
+      %pre.python
+        :preserve
+          str(obj)
+          int(obj)
+          float(obj)
+          bool(obj)
+
+    %td.php
+      %pre.php
+        :preserve
+          (string) $obj
+          (int) $obj
+          (float) $obj
+          (bool) $obj
 
 %h2 Arrays
 %table
