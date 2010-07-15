@@ -8,6 +8,8 @@ require "sinatra/base"
 
 class Main < Sinatra::Base
   set :root, File.dirname(__FILE__)
+  set :run, lambda { $0 == __FILE__ }
+
   get '/' do
     require 'yaml'
     content = YAML::load_file(File.join(settings.root, 'reference.yml'))
@@ -31,4 +33,4 @@ class Main < Sinatra::Base
   end
 end
 
-Main.run! if $0 == __FILE__
+Main.run! if Main.run?
