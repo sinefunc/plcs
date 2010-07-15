@@ -1,7 +1,7 @@
 html, body { margin: 0; padding: 0; }
 body { font-size: 11pt; font-family: helvetica, arial, sans-serif; }
 h2 { text-align: center; font-size: 1.1em; margin: 0; padding: 20px 0; background: #eee; }
-table { margin: 0 auto; border-collapse: collapse; }
+table { margin: 0 auto; border-collapse: collapse; table-layout: fixed; }
 th, td { text-align: left; vertical-align: top; border-bottom: dotted 1px #ccc; padding: 20px 10px; }
 pre { padding: 0; margin: 0; font-size: 9pt; }
 th { font-size: 0.8em; color: #aaa; }

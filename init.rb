@@ -13,7 +13,7 @@ class Main < Sinatra::Base
     content = YAML::load_file(File.join(settings.root, 'reference.yml'))
     languages = get_languages(content)
 
-    haml :home, {}, content: content, languages: languages
+    haml :home, {}, :content => content, :languages => languages
   end
 
   helpers do
