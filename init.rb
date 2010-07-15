@@ -29,7 +29,8 @@ class Main < Sinatra::Base
     end
 
     def format_code(code, language)
-      CodeRay.scan(code, language.to_sym).span.gsub("\n", "<br>")
+      c = CodeRay.scan(code, language.to_sym).span(:css => :class)
+      c.gsub("\n", "<br>")
     end
   end
 end
