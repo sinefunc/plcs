@@ -3,196 +3,280 @@ title: Your new Hyde site
 --
 %style
   :plain
-    h2 { text-align: center; font-size: 1.1em; }
-    table { width: 70%; margin: 0 auto; }
-    th, td { text-align: left; vertical-align: top; border: dotted 1px #ccc; padding: 10px; }
-    pre { padding: 0; margin: 0; }
-    tr > th:first-child { text-align: right; }
+    html, body { margin: 0; padding: 0; }
+    body { font-size: 11pt; font-family: helvetica, arial, sans-serif; }
+    h2 { text-align: center; font-size: 1.1em; margin: 0; padding: 20px 0; background: #eee; }
+    table { margin: 0 auto; border-collapse: collapse; }
+    th, td { text-align: left; vertical-align: top; border-bottom: dotted 1px #ccc; padding: 20px 10px; }
+    pre { padding: 0; margin: 0; font-size: 9pt; }
     th { font-size: 0.8em; color: #aaa; }
 
-    tr > th:first-child { width: 20%; }
-    tr > th + td { width: 40%; }
-    tr > th + td + td { width: 40%; }
+    tr > th:first-child { width: 175px; }
+    tr > td { width: 330px; }
 
 %h2 Classes
 %table
   %tr
     %th 
-    %th Ruby
-    %th Python
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
 
   %tr
     %th Class
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           class C
             # ...
           end
 
-    %td
+    %td.python
       %pre.python
         :preserve
           class C:
             # ...
+    %td.php
+      %pre.php
+        :preserve
+          class C {
+          }
 
   %tr
     %th Class inheritance
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           class C < Parent
+          end
 
-    %td
+    %td.python
       %pre.python
         :preserve
           class C(Parent):
 
+    %td.php
+      %pre.php
+        :preserve
+          class C extends P {
+          }
+
   %tr
     %th Multiple inheritance
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
-          
+          # Not available
 
-    %td
+    %td.python
       %pre.python
         :preserve
           class C(Parent1, Parent2):
 
+    %td.php
+      %pre.php
+        :preserve
+          // Not available
+
   %tr
     %th Instanciation
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           instance = C.new
           instance = C.new(args)
 
-    %td
+    %td.python
       %pre.python
         :preserve
           instance = C()
           instance = C(args)
 
+    %td.php
+      %pre.php
+        :preserve
+          $instance = new C();
+          $instance = new C($args);
+         
   %tr
     %th Declaring methods
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
-           def meth(args)
-             # ...
-           end
+          def meth(args)
+            # ...
+          end
 
-    %td
+    %td.python
       %pre.python
         :preserve
-           def meth(self, args):
-             # ...
+          def meth(self, args):
+            # ...
+
+    %td.php
+      %pre.php
+        :preserve
+          function meth(args) {
+          }
 
   %tr
     %th Subclass checking
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
-           if instance.is_a?(C)
+          if instance.is_a?(ClassName)
 
-    %td
+    %td.python
       %pre.python
         :preserve
-           if isinstance(instance, C):
-           # Also, issubclass(C, Parent)
+          if isinstance(instance, ClassName):
+          # Also, issubclass(ClassName, Parent)
+
+    %td.php
+      %pre.php
+        :preserve
+          if ($instance instanceof ClassName)
+          if (is_instance_of($instance, ClassName))
 
   %tr
     %th Getting the class
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           instance.class # => C
 
-    %td
+    %td.python
       %pre.python
         :preserve
           instance.__class__ # => C
 
+    %td.php
+      %pre.php
+        :preserve
+          __CLASS__ // from within
+          get_class($instance) // elsewhere
+
   %tr
-    %th Calling methods (from inside the class)
-    %td
+    %th
+      Calling methods
+      %br
+      (from inside the class)
+
+    %td.ruby
       %pre.ruby
         :preserve
           meth(args)
-    %td
+
+    %td.python
       %pre.python
         :preserve
           self.meth(args)
 
-  %tr
-    %th Calling methods (elsewhere)
+    %td.php
+      %pre.php
+        :preserve
+          $this->meth(args);
 
-    %td
+  %tr
+    %th
+      Calling methods
+      %br
+      (elsewhere)
+
+    %td.ruby
       %pre.ruby
         :preserve
           instance.meth
           instance.meth(args)
 
-    %td
+    %td.python
       %pre.python
         :preserve
           instance.meth()
           instance.meth(args)
 
+    %td.php
+      %pre.php
+        :preserve
+          $instance->meth(args);
+
   %tr
     %th Calling class methods
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
-          C.meth
-          C.meth(args)
+          ClassName.meth
+          ClassName.meth(args)
 
-    %td
+    %td.python
       %pre.python
         :preserve
-          C.meth()
-          C.meth(args)
+          ClassName.meth()
+          ClassName.meth(args)
+
+    %td.php
+      %pre.php
+        :preserve
+          ClassName::meth(args);
 
 %h2 Properties
 %table
   %tr
+    %th 
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
+
+  %tr
     %th Instance variables
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           @var
           # private
-    %td
+
+    %td.python
       %pre.python
         :preserve
           self.var
           # public
 
+    %td.php
+      %pre.php
+        :preserve
+          $this->var
+
   %tr
     %th Class variables
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           @@var
           # private
-    %td
+
+    %td.python
       %pre.python
         :preserve
           ClassName.var
           # public
 
+    %td.php
+      %pre.php
+        :preserve
+          ClassName::$var
+          // Consider static vars instead
+
   %tr
     %th Getters
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           def attr
@@ -201,16 +285,25 @@ title: Your new Hyde site
 
           # or:
           attr_reader :attr
-    %td
+
+    %td.python
       %pre.python
         :preserve
           def get_attr(self):
             return self._attr
           attr = property(get_attr)
 
+    %td.php
+      %pre.php
+        :preserve
+          public function __get($key) {
+            if ($key == 'attr')
+              { return $this->attr; }
+          }
+
   %tr
     %th Setters
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           def attr=(val)
@@ -219,7 +312,8 @@ title: Your new Hyde site
 
           # or:
           attr_writer :attr
-    %td
+
+    %td.python
       %pre.python
         :preserve
           def set_attr(self, val):
@@ -228,168 +322,384 @@ title: Your new Hyde site
 
           # Also: property(getter, setter,
           #                deleter, doc)
+          #
 
+    %td.php
+      %pre.php
+        :preserve
+          public function __set($key, $val) {
+            if ($key == 'attr')
+              { $this->attr = $val; }
+          }
+
+  %tr
+    %th Getting a property with an arbitrtary name
+
+    %td.ruby
+      %pre.ruby
+        :preserve
+          obj.send :attr
+          obj.send :'attr=', value
+
+    %td.python
+      %pre.python
+        :preserve
+          getattr(obj, 'attr')
+          setattr(obj, 'attr', value)
+
+    %td.php
+      %pre.php
+        :preserve
+          $obj->{'attr'}
+          $obj->{'attr'} = $value;
 
 %h2 Methods
 
 %table
   %tr
+    %th 
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
+
+  %tr
     %th String representation
     
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           obj.to_s
           obj.inspect
 
-    %td
+    %td.python
       %pre.python
         :preserve
           str(obj)
           repr(obj) # Attempts to make
                     # eval()'able output
 
+    %td.php
+      %pre.php
+        :preserve
+          print_r($obj)
+          var_export($obj) // eval()'able
+
   %tr
     %th Constructor
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           def initialize
 
-    %td
+    %td.python
       %pre.python
         :preserve
           def __init__(self):
 
+    %td.php
+      %pre.php
+        :preserve
+          public function __construct() {}
+
   %tr
     %th Static methods
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           def self.meth
 
-    %td
+    %td.python
       %pre.python
         :preserve
           @classmethod
           def meth(cls):
 
+    %td.php
+      %pre.php
+        :preserve
+          public static function meth() { }
+
 %h2 Overriding
 
 %table
   %tr
+    %th 
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
+
+  %tr
     %th String representations
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           def to_s
           def inspect
 
-    %td
+    %td.python
       %pre.python
         :preserve
           def __str__(self):
           def __repr__(self):
 
+    %td.php
+      %pre.php
+        :preserve
+          public function __toString() { }
+
   %tr
     %th inst[i]
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
           def [](i)
 
-    %td
+    %td.python
       %pre.python
         :preserve
-          def __getitem(self, i):
+          def __getitem__(self, i):
+        
+    %td.php
+      %pre.php
+        :preserve
+          // Not available
 
   %tr
     %th
       ins.attr
 
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
-          def method_missing(...)
+          def method_missing(meth, args, ...)
 
-    %td
+    %td.python
       %pre.python
         :preserve
-          def __getattr(self, attr):
+          def __getattr__(self, attr):
+
+    %td.php
+      %pre.php
+        :preserve
+          public function __get($attr) {}
+          public function __set($attr, $v) {}
+          public function __call($meth, $args) {}
+
+  %tr
+    %th
+      ClassName()
+
+    %td.ruby
+      %pre.ruby
+        :preserve
+          # Not available
+
+    %td.python
+      %pre.python
+        :preserve
+          # Calls the constructor
+
+    %td.php
+      %pre.php
+        :preserve
+          public function __invoke() {}
 
 %h2 Arrays
 %table
+  %tr
+    %th 
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
+
+  %tr
+    %th Initializing
+    %td.ruby
+      %pre.ruby
+        :preserve
+          arr = Array.new
+
+    %td.python
+      %pre.python
+        :preserve
+          arr = list()
+
+    %td.php
+      %pre.php
+        :preserve
+          $arr = [];
 
   %tr
     %th Adding items
-    %td
+
+    %td.ruby
       %pre.ruby
         :preserve
           arr << item
-    %td
+
+    %td.python
       %pre.python
         :preserve
           arr.append(item)
 
+    %td.php
+      %pre.php
+        :preserve
+          array_push($arr, $item)
+
+  %tr
+    %th Accessing items
+    %td.ruby
+      %pre.ruby
+        :preserve
+          arr[0]
+    %td.python
+      %pre.python
+        :preserve
+          arr[0]
+    %td.php
+      %pre.php
+        :preserve
+          $arr[0]
+
+%h2 Hashes
+
+%table
+  %tr
+    %th 
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
+
+  %tr
+    %th Initializing empty hashes
+
+    %td.ruby
+      %pre.ruby
+        Hash.new()
+
+    %td.python
+      %pre.python
+        dict()
+
+    %td.php
+      %pre.php
+        array()
+
+  %tr
+    %th Initializing with contents
+
+    %td.ruby
+      %pre.ruby
+        :preserve
+          { red: 1, green: 2 } # Ruby 1.9.x
+          { :red => 1, :green => 2 } 
+          Hash.new([['red',1], ['green',2]])
+
+    %td.python
+      %pre.python
+        :preserve
+          { red: 1, green: 2 }
+          dict([['red',1], ['green',2]])
+
+    %td.php
+      %pre.php
+        :preserve
+          array( 'red' => 1, 'green' => 2 )
+
 %h2 Enumerables
 %table
+  %tr
+    %th 
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
 
   %tr
     %th Iterating
-    %td
+    %td.ruby
       %pre.ruby
         :preserve
-          list.each do |item|
-    %td
+          mylist.each do |item|
+
+    %td.python
       %pre.python
         :preserve
-          for item in list:
+          for item in mylist:
+
+    %td.php
+      %pre.php
+        :preserve
+          foreach ($mylist as $item) {}
+          // Also array_walk()
 
   %tr
     %th Map
-    %td
+
+    %td.ruby
       %pre.ruby
         :preserve
-          list.map do |item|
+          mylist.map do |item|
             expr(item)
           end
-    %td
+
+    %td.python
       %pre.python
         :preserve
-          map(lambda item: expr(item), list)
+          map(lambda item: expr(item), mylist)
           # or:
-          [expr(item) for item in list]
+          [expr(item) for item in mylist]
+
+    %td.php
+      %pre.php
+        :preserve
+          array_map($mylist, 'callback')
 
   %tr
     %th Inject
-    %td
+
+    %td.ruby
       %pre.ruby
         :preserve
-          list.inject do |acc, item|
+          mylist.inject do |acc, item|
             acc + item
           end
-    %td
+
+    %td.python
       %pre.python
         :preserve
           reduce(
             lambda acc, item: acc + item,
-            list)
+            mylist)
+
+    %td.php
+      %pre.php
+        :preserve
+          // Not available
 
   %tr
     %th Hash iterating
-    %td
+
+    %td.ruby
       %pre.ruby
         :preserve
           hash.each do |k, v|
-    %td
+
+    %td.python
       %pre.python
         :preserve
           for k in dict:
             v = dict[k]
+
+    %td.php
+      %pre.php
+        :preserve
+          foreach ($hash as $k => $v) {}
+          // Also array_walk()
 
 %h2 Files
 
