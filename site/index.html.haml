@@ -1,0 +1,399 @@
+layout: default
+title: Your new Hyde site
+--
+%style
+  :plain
+    h2 { text-align: center; font-size: 1.1em; }
+    table { width: 70%; margin: 0 auto; }
+    th, td { text-align: left; vertical-align: top; border: dotted 1px #ccc; padding: 10px; }
+    pre { padding: 0; margin: 0; }
+    tr > th:first-child { text-align: right; }
+    th { font-size: 0.8em; color: #aaa; }
+
+    tr > th:first-child { width: 20%; }
+    tr > th + td { width: 40%; }
+    tr > th + td + td { width: 40%; }
+
+%h2 Classes
+%table
+  %tr
+    %th 
+    %th Ruby
+    %th Python
+
+  %tr
+    %th Class
+
+    %td
+      %pre.ruby
+        :preserve
+          class C
+            # ...
+          end
+
+    %td
+      %pre.python
+        :preserve
+          class C:
+            # ...
+
+  %tr
+    %th Class inheritance
+
+    %td
+      %pre.ruby
+        :preserve
+          class C < Parent
+
+    %td
+      %pre.python
+        :preserve
+          class C(Parent):
+
+  %tr
+    %th Multiple inheritance
+
+    %td
+      %pre.ruby
+        :preserve
+          
+
+    %td
+      %pre.python
+        :preserve
+          class C(Parent1, Parent2):
+
+  %tr
+    %th Instanciation
+
+    %td
+      %pre.ruby
+        :preserve
+          instance = C.new
+          instance = C.new(args)
+
+    %td
+      %pre.python
+        :preserve
+          instance = C()
+          instance = C(args)
+
+  %tr
+    %th Declaring methods
+
+    %td
+      %pre.ruby
+        :preserve
+           def meth(args)
+             # ...
+           end
+
+    %td
+      %pre.python
+        :preserve
+           def meth(self, args):
+             # ...
+
+  %tr
+    %th Subclass checking
+
+    %td
+      %pre.ruby
+        :preserve
+           if instance.is_a?(C)
+
+    %td
+      %pre.python
+        :preserve
+           if isinstance(instance, C):
+           # Also, issubclass(C, Parent)
+
+  %tr
+    %th Getting the class
+
+    %td
+      %pre.ruby
+        :preserve
+          instance.class # => C
+
+    %td
+      %pre.python
+        :preserve
+          instance.__class__ # => C
+
+  %tr
+    %th Calling methods (from inside the class)
+    %td
+      %pre.ruby
+        :preserve
+          meth(args)
+    %td
+      %pre.python
+        :preserve
+          self.meth(args)
+
+  %tr
+    %th Calling methods (elsewhere)
+
+    %td
+      %pre.ruby
+        :preserve
+          instance.meth
+          instance.meth(args)
+
+    %td
+      %pre.python
+        :preserve
+          instance.meth()
+          instance.meth(args)
+
+  %tr
+    %th Calling class methods
+
+    %td
+      %pre.ruby
+        :preserve
+          C.meth
+          C.meth(args)
+
+    %td
+      %pre.python
+        :preserve
+          C.meth()
+          C.meth(args)
+
+%h2 Properties
+%table
+  %tr
+    %th Instance variables
+    %td
+      %pre.ruby
+        :preserve
+          @var
+          # private
+    %td
+      %pre.python
+        :preserve
+          self.var
+          # public
+
+  %tr
+    %th Class variables
+    %td
+      %pre.ruby
+        :preserve
+          @@var
+          # private
+    %td
+      %pre.python
+        :preserve
+          ClassName.var
+          # public
+
+  %tr
+    %th Getters
+    %td
+      %pre.ruby
+        :preserve
+          def attr
+            @attr
+          end
+
+          # or:
+          attr_reader :attr
+    %td
+      %pre.python
+        :preserve
+          def get_attr(self):
+            return self._attr
+          attr = property(get_attr)
+
+  %tr
+    %th Setters
+    %td
+      %pre.ruby
+        :preserve
+          def attr=(val)
+            @attr = val
+          end
+
+          # or:
+          attr_writer :attr
+    %td
+      %pre.python
+        :preserve
+          def set_attr(self, val):
+            self._attr = val
+          attr = property(None, set_attr)
+
+          # Also: property(getter, setter,
+          #                deleter, doc)
+
+
+%h2 Methods
+
+%table
+  %tr
+    %th String representation
+    
+    %td
+      %pre.ruby
+        :preserve
+          obj.to_s
+          obj.inspect
+
+    %td
+      %pre.python
+        :preserve
+          str(obj)
+          repr(obj) # Attempts to make
+                    # eval()'able output
+
+  %tr
+    %th Constructor
+
+    %td
+      %pre.ruby
+        :preserve
+          def initialize
+
+    %td
+      %pre.python
+        :preserve
+          def __init__(self):
+
+  %tr
+    %th Static methods
+
+    %td
+      %pre.ruby
+        :preserve
+          def self.meth
+
+    %td
+      %pre.python
+        :preserve
+          @classmethod
+          def meth(cls):
+
+%h2 Overriding
+
+%table
+  %tr
+    %th String representations
+
+    %td
+      %pre.ruby
+        :preserve
+          def to_s
+          def inspect
+
+    %td
+      %pre.python
+        :preserve
+          def __str__(self):
+          def __repr__(self):
+
+  %tr
+    %th inst[i]
+
+    %td
+      %pre.ruby
+        :preserve
+          def [](i)
+
+    %td
+      %pre.python
+        :preserve
+          def __getitem(self, i):
+
+  %tr
+    %th
+      ins.attr
+
+    %td
+      %pre.ruby
+        :preserve
+          def method_missing(...)
+
+    %td
+      %pre.python
+        :preserve
+          def __getattr(self, attr):
+
+%h2 Arrays
+%table
+
+  %tr
+    %th Adding items
+    %td
+      %pre.ruby
+        :preserve
+          arr << item
+    %td
+      %pre.python
+        :preserve
+          arr.append(item)
+
+%h2 Enumerables
+%table
+
+  %tr
+    %th Iterating
+    %td
+      %pre.ruby
+        :preserve
+          list.each do |item|
+    %td
+      %pre.python
+        :preserve
+          for item in list:
+
+  %tr
+    %th Map
+    %td
+      %pre.ruby
+        :preserve
+          list.map do |item|
+            expr(item)
+          end
+    %td
+      %pre.python
+        :preserve
+          map(lambda item: expr(item), list)
+          # or:
+          [expr(item) for item in list]
+
+  %tr
+    %th Inject
+    %td
+      %pre.ruby
+        :preserve
+          list.inject do |acc, item|
+            acc + item
+          end
+    %td
+      %pre.python
+        :preserve
+          reduce(
+            lambda acc, item: acc + item,
+            list)
+
+  %tr
+    %th Hash iterating
+    %td
+      %pre.ruby
+        :preserve
+          hash.each do |k, v|
+    %td
+      %pre.python
+        :preserve
+          for k in dict:
+            v = dict[k]
+
+%h2 Files
+
+%h2 Strings
+
+%h2 Regex
+
