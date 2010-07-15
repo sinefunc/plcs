@@ -210,6 +210,27 @@
         </td>
       </tr>
     </table>
+    <h2>Constants</h2>
+    <table>
+      <tr>
+        <th></th>
+        <th class='ruby'>Ruby</th>
+        <th class='python'>Python</th>
+        <th class='php'>PHP</th>
+      </tr>
+      <tr>
+        <th>Common constants</th>
+        <td class='ruby'>
+          <pre class='ruby'>true&#x000A;false&#x000A;nil&#x000A;</pre>
+        </td>
+        <td class='python'>
+          <pre class='python'>True&#x000A;False&#x000A;None&#x000A;</pre>
+        </td>
+        <td class='php'>
+          <pre class='php'>TRUE&#x000A;FALSE&#x000A;NULL&#x000A;</pre>
+        </td>
+      </tr>
+    </table>
     <h2>Methods</h2>
     <table>
       <tr>
@@ -471,7 +492,7 @@
       <tr>
         <th>Inject</th>
         <td class='ruby'>
-          <pre class='ruby'>mylist.inject do |acc, item|&#x000A;  acc + item&#x000A;end&#x000A;</pre>
+          <pre class='ruby'>mylist.inject do |acc, item|&#x000A;  acc + item; acc&#x000A;end&#x000A;</pre>
         </td>
         <td class='python'>
           <pre class='python'>reduce(&#x000A;  lambda acc, item: acc + item,&#x000A;  mylist)&#x000A;</pre>

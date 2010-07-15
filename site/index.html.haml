@@ -331,6 +331,39 @@ title: Your new Hyde site
           $obj->{'attr'}
           $obj->{'attr'} = $value;
 
+%h2 Constants
+
+%table
+  %tr
+    %th 
+    %th.ruby Ruby
+    %th.python Python
+    %th.php PHP
+
+  %tr
+    %th Common constants
+
+    %td.ruby
+      %pre.ruby
+        :preserve
+          true
+          false
+          nil
+
+    %td.python
+      %pre.python
+        :preserve
+          True
+          False
+          None
+
+    %td.php
+      %pre.php
+        :preserve
+          TRUE
+          FALSE
+          NULL
+
 %h2 Methods
 
 %table
@@ -710,7 +743,7 @@ title: Your new Hyde site
       %pre.ruby
         :preserve
           mylist.inject do |acc, item|
-            acc + item
+            acc + item; acc
           end
 
     %td.python
