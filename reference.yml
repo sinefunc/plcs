@@ -75,14 +75,14 @@
 
   - Getting the class:
     - Ruby: |
-        instance.class # => C
+        instance.class # => ClassNmae
     - Python: |
-        instance.__class__ # => C
+        instance.__class__ # => ClassName
     - PHP: |
         __CLASS__ // from within
-        get_class($instance) // elsewhere
+        get_class($instance) # => 'ClassName'
     - JavaScript: |
-        // .prototype
+        // .prototype? dunno
 
   - 'Calling methods (from inside the class)':
     - Ruby: |
