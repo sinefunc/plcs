@@ -313,6 +313,48 @@
         fn(4);  //=> 5
 
 # ===============================================================================
+- Namespaces:
+# ===============================================================================
+
+  - Namespaces:
+    - Ruby: |
+        # foo.rb
+        module Foo
+          class Bar
+            # ...
+          end
+        end
+        
+        # elsewhere:
+        $fb = Foo::Bar.new
+    - Python: |
+       # foo.py
+       class Bar:
+         pass
+  
+       # elsewhere:
+       import foo
+       fb = foo.Bar()
+  
+       # or:
+       from foo import Bar
+       fb = Bar()
+    - PHP: |
+       // foo.php
+       namespace Foo;
+       class Bar { /* ... */ }
+  
+       // elsewhere:
+       $fb = new Foo\Bar();
+    - JavaScript: |
+       Foo = {
+         Bar: function() { /* ... */ }
+       };
+  
+       // elsewhere:
+       var fb = new Foo.Bar();
+
+# ===============================================================================
 - Overriding:
 # ===============================================================================
 
