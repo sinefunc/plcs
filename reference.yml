@@ -299,12 +299,14 @@
   - 'Anonymous functions':
     - Ruby: |
         fn = lambda { |x| x+1 }
+        fn = -> { |x| x+1 } # Ruby 1.9
         fn.call(4)  #=> 5
     - Python: |
         fn = lambda x: x+1
         fn(4)  #=> 5
     - PHP: |
         $fn = create_function('$x', 'return $x+1;');
+        $fn = function($x) { return $x+1; }; // PHP 5.3
         $fn(4);  //=> 5
     - JavaScript: |
         var fn = function(x) { return x+1; }
