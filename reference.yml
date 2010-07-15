@@ -672,6 +672,8 @@
         'Hi %{name}' % {name: name}
     - PHP: |
         "Hi $name"
+        "Hi {$name}"
+        sprintf('Hi %s', $name)
     - JavaScript: |
 
   - 'Uppercase/lowercase':
