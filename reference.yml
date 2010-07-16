@@ -35,7 +35,6 @@
     - PHP: |
         class ClassName extends Parent
     - JavaScript: |
-        // ...
 
   - Multiple inheritance:
     - Ruby: |
@@ -68,7 +67,6 @@
         if ($instance instanceof ClassName)
         if (is_instance_of($instance, ClassName))
     - JavaScript: |
-        // ...
 
   - Getting the class:
     - Ruby: |
@@ -129,7 +127,6 @@
           return parent::meth();
         }
     - JavaScript: |
-        // ...
 
 # ===============================================================================
 - Variables:
@@ -588,7 +585,8 @@
         arr.append(4)      #=>   [1,2,3,4]
         arr.insert(0, 'X') #=> [X,1,2,3,4]
     - PHP: |
-        array_push($arr, 4);     //=>   [1,2,3,4]
+        $arr[]= 4;               //=>   [1,2,3,4]
+        array_push($arr, 4);     // same as above
         array_unshift($arr, 0);  //=> [0,1,2,3,4]
     - JavaScript: |
         arr.push(4);    //=> [1,2,3,4]
