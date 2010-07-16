@@ -34,7 +34,7 @@ td.php    { background: #f0f3fa; }
 */
 
 pre { font-family: 'lucida console', monospace; font-size: 11px; text-indent: -3px; letter-spacing: -1px; }
-/*td.empty  { background: transparent; }*/
+td.empty  { opacity: 0.5; }
 
 div.CodeRay { }
 
