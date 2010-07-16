@@ -248,6 +248,8 @@
         false
         null
         undefined
+        NaN
+        Infinity
 
 # ===============================================================================
 - Methods:
@@ -439,6 +441,8 @@
         print_r($obj)
         var_export($obj) // eval()able
     - JavaScript: |
+        obj.toString()
+        String(obj)
 
   - Overriding string representations:
     - Ruby: |
@@ -452,8 +456,46 @@
     - JavaScript: |
 
 # ===============================================================================
-- Casting:
+- Types:
 # ===============================================================================
+
+  - Type classes:
+    - Ruby:
+        Fixnum
+        Bignum
+        String
+        Integer
+        Time
+        RegExp
+    - Python: |
+        int
+        bool
+        str
+    - PHP: |
+    - JavaScript: |
+        Number
+        Array
+        Boolean
+        Date
+        String
+        RegExp
+
+  - Type checking:
+    - Ruby: |
+        if obj.is_a? Fixnum
+    - Python: |
+        if isinstance(obj, str):
+    - PHP: |
+        is_bool($obj)
+        is_int($obj)
+        is_scalar($obj) // integer, float,
+                        // string, or boolean
+
+        // Also: is_float(), is_int(), is_numeric(),
+        // is_string(), is_bool(), is_object(),
+        // is_array()
+    - JavaScript: |
+        // TODO
 
   - Casting:
     - Ruby: |
@@ -471,8 +513,10 @@
         (float) $obj
         (bool) $obj
     - JavaScript: |
-        // ...
         parseInt($obj)
+        parseFloat($obj)
+        String($obj)
+        Number($obj)
 
 # ===============================================================================
 - Arrays:
@@ -851,10 +895,11 @@
         round(2.5)         //=> 3
         round(3.14159, 2)  //=> 3.14
     - JavaScript: |
-        parseInt(2.5)   //=> 2
-        Math.floor(2.5) //=> 2
-        Math.ceil(2.5)  //=> 3
-        Math.round(2.5) //=> 3
+        parseInt(2.5)      //=> 2
+        Math.floor(2.5)    //=> 2
+        Math.ceil(2.5)     //=> 3
+        Math.round(2.5)    //=> 3
+        (3.141).toFixed(2) //=> 3.14
 
   - Minimum and maximum:
     - Ruby: |
