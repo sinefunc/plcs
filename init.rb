@@ -22,7 +22,7 @@ class Main < Sinatra::Base
 
     etag @ref.mtime
     last_modified @ref.mtime
-    cache_control :public, :max_age => 60
+    cache_control :public, :max_age => 86400
 
     haml :home, {}, :content => @ref.content, :languages => @ref.languages
   end
