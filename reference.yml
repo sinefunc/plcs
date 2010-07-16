@@ -432,61 +432,6 @@ languages:
        var fb = new Foo.Bar();
 
 # ===============================================================================
-- Overriding:
-# ===============================================================================
-
-  - 'Overriding instance[i]':
-      Ruby: |
-        def [](i)
-        def []=(i, value)
-      Python: |
-        def __getitem__(self, i):
-        def __setitem__(self, i, value):
-        def __delitem__(self, i):
-
-        # To override instance[i:j]:
-        def __getslice__(self, i, j):
-        def __setslice__(self, i, j):
-        def __delslice__(self, i, j):
-      PHP: |
-      JavaScript: |
-
-  - 'Catching a missing attrib/method':
-      Ruby: |
-        def method_missing(meth, *args)
-      Python: |
-        def __getattr__(self, attr):
-      PHP: |
-        public function __get($attr) {}
-        public function __set($attr, $v) {}
-        public function __call($meth, $args) {}
-      JavaScript: |
-
-  - 'Overriding ClassName()':
-      Ruby: |
-      Python: |
-      PHP: |
-        public function __invoke() {}
-      JavaScript: |
-
-  - Overloading operators:
-        Ruby: |
-          def <<(other)
-          def +(other)    # also * / - < ...
-          def -@          # unary -, also +@
-          def <=>(other)  # include Comparable
-        Python: |
-          def __add__(self, other):
-          def __sub__(self, other):
-          def __mul__(self, other):
-          def __pow__(self, other[, modulo]):
-          def __cmp__(self, other):
-          # Also: floordiv, mod, divmod, pow, lshift,
-          #       rshift, and, xor, or, div, ...
-        PHP: |
-        JavaScript: |
-
-# ===============================================================================
 - String representation:
 # ===============================================================================
 
@@ -791,86 +736,6 @@ languages:
         })
 
 # ===============================================================================
-- Files:
-# ===============================================================================
-
-  - Path joining:
-      Ruby: |
-        File.join('dir', 'file')
-      Python: |
-        os.path.join('dir', 'file')
-      PHP: |
-        'dir' . DIRECTORY_SEPARATOR . 'file'
-      JavaScript: |
-
-  - Getting path info:
-      Ruby: |
-        fpath = 'dir/sub/file.txt'
-        File.dirname(fpath)  #=> 'dir/sub'
-        File.basename(fpath) #=> 'file.txt'
-      Python: |
-        fpath = 'dir/sub/file.txt'
-        os.path.dirname(fpath)   #=> 'dir/sub'
-        os.path.basename(fpath)  #=> 'file.txt'
-
-        os.path.split(fpath)
-        #=> ['dir/sub', 'file.txt']
-      PHP: |
-        $fpath = 'dir/sub/file.txt';
-        dirname($fpath);   //=> 'dir/sub'
-        basename($fpath);  //=> 'file.txt'
-      JavaScript: |
-
-  - Getting current directory:
-      Ruby: |
-        Dir.pwd
-        File.dirname(__FILE__)
-      Python: |
-        os.getcwd()
-      PHP: |
-        getcwd()
-        dirname(__FILE__)
-      JavaScript: |
-
-  - File existence check:
-      Ruby: |
-        if File.exists?(fname)
-      Python: |
-        if os.path.isfile(fname):
-      PHP: |
-        if (is_file($fname)) {}
-      JavaScript: |
-
-  - Is directory check:
-      Ruby: |
-        File.directory?(dname)
-      Python: |
-        if os.path.isdir(dname):
-      PHP: |
-        if (is_dir(dname)) {}
-      JavaScript: |
-
-  - Quick reading:
-      Ruby: |
-        data = File.open('f.txt') { |f| f.read }
-      Python: |
-        with open('f.txt', 'r') as f:
-          data = f.read()
-      PHP: |
-        $data = file_get_contents('f.txt');
-      JavaScript: |
-
-  - Quick writing:
-      Ruby: |
-        File.open('f.txt', 'w') { |f| f << data }
-      Python: |
-        with open('f.txt', 'w') as f:
-          f.write(data)
-      PHP: |
-        file_put_contents('f.txt', $data);
-      JavaScript: |
-
-# ===============================================================================
 - Printing:
 # ===============================================================================
 
@@ -1084,6 +949,141 @@ languages:
       JavaScript: |
         Math.sin(theta)
         Math.PI //=> 3.14159...
+
+# ===============================================================================
+- Overriding:
+# ===============================================================================
+
+  - 'Overriding instance[i]':
+      Ruby: |
+        def [](i)
+        def []=(i, value)
+      Python: |
+        def __getitem__(self, i):
+        def __setitem__(self, i, value):
+        def __delitem__(self, i):
+
+        # To override instance[i:j]:
+        def __getslice__(self, i, j):
+        def __setslice__(self, i, j):
+        def __delslice__(self, i, j):
+      PHP: |
+      JavaScript: |
+
+  - 'Catching a missing attrib/method':
+      Ruby: |
+        def method_missing(meth, *args)
+      Python: |
+        def __getattr__(self, attr):
+      PHP: |
+        public function __get($attr) {}
+        public function __set($attr, $v) {}
+        public function __call($meth, $args) {}
+      JavaScript: |
+
+  - 'Overriding ClassName()':
+      Ruby: |
+      Python: |
+      PHP: |
+        public function __invoke() {}
+      JavaScript: |
+
+  - Overloading operators:
+        Ruby: |
+          def <<(other)
+          def +(other)    # also * / - < ...
+          def -@          # unary -, also +@
+          def <=>(other)  # include Comparable
+        Python: |
+          def __add__(self, other):
+          def __sub__(self, other):
+          def __mul__(self, other):
+          def __pow__(self, other[, modulo]):
+          def __cmp__(self, other):
+          # Also: floordiv, mod, divmod, pow, lshift,
+          #       rshift, and, xor, or, div, ...
+        PHP: |
+        JavaScript: |
+
+# ===============================================================================
+- Files:
+# ===============================================================================
+
+  - Path joining:
+      Ruby: |
+        File.join('dir', 'file')
+      Python: |
+        os.path.join('dir', 'file')
+      PHP: |
+        'dir' . DIRECTORY_SEPARATOR . 'file'
+      JavaScript: |
+
+  - Getting path info:
+      Ruby: |
+        fpath = 'dir/sub/file.txt'
+        File.dirname(fpath)  #=> 'dir/sub'
+        File.basename(fpath) #=> 'file.txt'
+      Python: |
+        fpath = 'dir/sub/file.txt'
+        os.path.dirname(fpath)   #=> 'dir/sub'
+        os.path.basename(fpath)  #=> 'file.txt'
+
+        os.path.split(fpath)
+        #=> ['dir/sub', 'file.txt']
+      PHP: |
+        $fpath = 'dir/sub/file.txt';
+        dirname($fpath);   //=> 'dir/sub'
+        basename($fpath);  //=> 'file.txt'
+      JavaScript: |
+
+  - Getting current directory:
+      Ruby: |
+        Dir.pwd
+        File.dirname(__FILE__)
+      Python: |
+        os.getcwd()
+      PHP: |
+        getcwd()
+        dirname(__FILE__)
+      JavaScript: |
+
+  - File existence check:
+      Ruby: |
+        if File.exists?(fname)
+      Python: |
+        if os.path.isfile(fname):
+      PHP: |
+        if (is_file($fname)) {}
+      JavaScript: |
+
+  - Is directory check:
+      Ruby: |
+        File.directory?(dname)
+      Python: |
+        if os.path.isdir(dname):
+      PHP: |
+        if (is_dir(dname)) {}
+      JavaScript: |
+
+  - Quick reading:
+      Ruby: |
+        data = File.open('f.txt') { |f| f.read }
+      Python: |
+        with open('f.txt', 'r') as f:
+          data = f.read()
+      PHP: |
+        $data = file_get_contents('f.txt');
+      JavaScript: |
+
+  - Quick writing:
+      Ruby: |
+        File.open('f.txt', 'w') { |f| f << data }
+      Python: |
+        with open('f.txt', 'w') as f:
+          f.write(data)
+      PHP: |
+        file_put_contents('f.txt', $data);
+      JavaScript: |
 
 # ===============================================================================
 - DOM Manipulation:
