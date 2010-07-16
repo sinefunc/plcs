@@ -115,6 +115,22 @@
     - JavaScript: |
         ClassName.meth(args);
 
+  - Calling a parent class method:
+    - Ruby: |
+        def meth
+          super
+        end
+    - Python: |
+        class B(A):
+          def meth(self):
+            super(A, self).meth()
+    - PHP: |
+        function meth() {
+          return parent::meth();
+        }
+    - JavaScript: |
+        // ...
+
 # ===============================================================================
 - Variables:
 # ===============================================================================
