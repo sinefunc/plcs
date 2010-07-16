@@ -370,15 +370,22 @@
 - Overriding:
 # ===============================================================================
 
-  - 'inst[i]':
+  - 'Overriding instance[i]':
     - Ruby: |
         def [](i)
     - Python: |
         def __getitem__(self, i):
+        def __setitem__(self, i, value):
+        def __delitem__(self, i):
+
+        # To override instance[i:j]:
+        def __getslice__(self, i, j):
+        def __setslice__(self, i, j):
+        def __delslice__(self, i, j):
     - PHP: |
     - JavaScript: |
 
-  - 'Missing attrib/method':
+  - 'Catching a missing attrib/method':
     - Ruby: |
         def method_missing(meth, args, ...)
     - Python: |
@@ -389,7 +396,7 @@
         public function __call($meth, $args) {}
     - JavaScript: |
 
-  - 'ClassName()':
+  - 'Overriding ClassName()':
     - Ruby: |
     - Python: |
         # Calls the constructor
@@ -397,6 +404,23 @@
         public function __invoke() {}
     - JavaScript: |
         // Calls the constructor
+
+  - Overloading operators:
+      - Ruby: |
+          def <<(other)
+          def +(other)    # also * / - < ...
+          def @-          # unary -
+          def <=>(other)  # include Comparable
+      - Python: |
+          def __add__(self, other):
+          def __sub__(self, other):
+          def __mul__(self, other):
+          def __pow__(self, other[, modulo]):
+          def __cmp__(self, other):
+          # Also: floordiv, mod, divmod, pow, lshift,
+          #       rshift, and, xor, or, div, ...
+      - PHP: |
+      - JavaScript: |
 
 # ===============================================================================
 - String representation:
@@ -559,14 +583,14 @@
     - Ruby: |
         { :red => 1, :green => 2 } 
         { red: 1, green: 2 } # Ruby 1.9
-        Hash.new([['red',1], ['green',2]])
+        Hash.new([[:red, 1], [:green, 2]])
     - Python: |
         { 'red': 1, 'green': 2 }
-        dict([['red',1], ['green',2]])
+        dict([['red', 1], ['green', 2]])
     - PHP: |
         array( 'red' => 1, 'green' => 2 )
     - JavaScript: |
-        { red: 1, green: 2 }
+        { 'red': 1, 'green': 2 }
 
   - Iterating hashes:
     - Ruby: |
@@ -810,10 +834,39 @@
 
   - Rounding off:
     - Ruby: |
+        (2.5).floor   #=> 2
+        (2.5).ceil    #=> 3
+        (2.5).to_i    #=> 2
+        (2.5).round   #=> 3
     - Python: |
+        math.floor(2.5)    #=> 2
+        math.ceil(2.5)     #=> 3
+        math.trunc(2.5)    #=> 2
+        round(2.5)         #=> 3
+        round(3.14159, 2)  #=> 3.14
     - PHP: |
+        floor(2.5)         //=> 2
+        ceil(2.5)          //=> 3
+        round(2.5)         //=> 3
+        round(3.14159, 2)  //=> 3.14
     - JavaScript: |
         Math.floor(2.5) // 2
+
+  - Minimum and maximum:
+    - Ruby: |
+        [2, 4].min  #=> 2
+        [2, 4].max  #=> 4
+    - Python: |
+        min(2, 4)   #=> 2
+        max(2, 4)   #=> 4
+        min([2, 4])
+    - PHP: |
+        min(2, 4)   //=> 2
+        max(2, 4)   //=> 4
+        min(array(2, 4))
+    - JavaScript: |
+        Math.min(2, 4)   //=> 2
+        Math.max(2, 4)   //=> 4
 
   - Exponents:
     - Ruby: |
