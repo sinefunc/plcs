@@ -7,13 +7,15 @@
 
       $.hashListen('', function() {
         self.loadLanguages(['ruby', 'python']);
-        $(".preload").show();
+        self.normalize();
+        $(".preload").removeClass('preload');
       });
 
       $.hashListen(':languages', function(languages) {
         languages = languages.split('+');
         self.loadLanguages(languages);
-        $(".preload").show();
+        self.normalize();
+        $(".preload").removeClass('preload');
       });
     },
 
@@ -33,6 +35,33 @@
           self.$checkbox(lang).attr('checked', 0);
         }
       }
+    },
+
+    normalize: function() {
+      var self = this;
+      var selector = [];
+
+      // Make a list of TDs for all active languages.
+      var langs = self.getLanguages();
+      for (i in langs) { selector.push("td." + langs[i]); }
+      selector = selector.join(",");
+
+      // Hide the unused table rows.
+      $("tr").each(function() {
+        var $tds   = $(this).find(selector),
+            $th    = $(this).find('th'),
+            text   = $tds.text().trim();
+
+        if (text == '') { $(this).addClass('hidden'); }
+        else { $(this).removeClass('hidden'); }
+      });
+
+      // Hide unused sections.
+      $("section").each(function() {
+        var $trs = $(this).find("tr:not(.hidden)");
+        if ($trs.length == 0) { $(this).addClass('hidden'); }
+        else { $(this).removeClass('hidden'); }
+      });
     },
 
     // Returns the selected languages.

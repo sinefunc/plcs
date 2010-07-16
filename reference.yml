@@ -418,11 +418,9 @@
   - 'Overriding ClassName()':
     - Ruby: |
     - Python: |
-        # Calls the constructor
     - PHP: |
         public function __invoke() {}
     - JavaScript: |
-        // Calls the constructor
 
   - Overloading operators:
       - Ruby: |
