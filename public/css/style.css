@@ -27,6 +27,14 @@ td.ruby   { background: #faf6f6; }
 td.python { background: #f0faf3; }
 td.php    { background: #f0f3fa; }
 
+/*
+.even td.ruby   { background: #eae6e6; }
+.even td.python { background: #e0eae3; }
+.even td.php    { background: #e0e3ea; }
+*/
+
+td.empty  { background: transparent; }
+
 div.CodeRay { }
 
 span.CodeRay { white-space: pre; border: 0px; padding: 2px }

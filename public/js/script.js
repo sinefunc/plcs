@@ -17,6 +17,12 @@
         self.normalize();
         $(".preload").removeClass('preload');
       });
+
+    },
+    
+    stripe: function() {
+      $("table tr").removeClass('even');
+      $("table tr:not(.hidden):even").addClass('even');
     },
 
     // Loads the languages given in the array.
@@ -62,6 +68,9 @@
         if ($trs.length == 0) { $(this).addClass('hidden'); }
         else { $(this).removeClass('hidden'); }
       });
+
+      // Rearrange table stripes
+      self.stripe();
     },
 
     // Returns the selected languages.
@@ -90,5 +99,6 @@
     }
   });
 
+  $(function() { RF.init(); });
   $(function() { RF.init(); });
 })(jQuery);

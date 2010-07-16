@@ -27,7 +27,12 @@
                 - snippets.each do |hash|
                   - hash.each do |language, code|
                     - language = to_slug(language)
-                    %td{:class => language}
-                      %pre{:class => language}
-                        = format_code(code, language)
+
+                    - if code.strip == ''
+                      %td{:class => "#{language} empty"}
+
+                    - else
+                      %td{:class => language}
+                        %pre{:class => language}
+                          = format_code(code, language)
 
