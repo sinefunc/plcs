@@ -3,9 +3,17 @@ class Reference
   attr_accessor :content
   attr_accessor :languages
 
-  def initialize(fname)
+  def filename
+    File.join(Main.root, 'reference.yml')
+  end
+
+  def mtime
+    File.mtime(filename)
+  end
+
+  def initialize
     require "yaml"
-    stream = YAML::load_stream(File.open(fname))
+    stream = YAML::load_stream(File.open(filename))
     @languages = stream.documents[0]
 
     # Make sure the snippets are an array of hashes.

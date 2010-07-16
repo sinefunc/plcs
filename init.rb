@@ -18,7 +18,12 @@ class Main < Sinatra::Base
   end
 
   get '/' do
-    @ref = Reference.new(settings.reference_file)
+    @ref = Reference.new
+
+    etag @ref.mtime
+    last_modified @ref.mtime
+    cache_control :public, :max_age => 60
+
     haml :home, {}, :content => @ref.content, :languages => @ref.languages
   end
 end
