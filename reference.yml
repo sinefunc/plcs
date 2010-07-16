@@ -701,6 +701,7 @@
         map(lambda item: expr(item), mylist)
         # or:
         [expr(item) for item in mylist]
+        # also: [expr for i in mylist if cond]
     - PHP: |
         array_map($mylist, 'callback')
     - JavaScript: |
