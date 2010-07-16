@@ -452,7 +452,7 @@
         def __str__(self):
         def __repr__(self):
     - PHP: |
-        public function __toString() { }
+        public function __toString() {}
     - JavaScript: |
 
 # ===============================================================================
@@ -460,7 +460,7 @@
 # ===============================================================================
 
   - Type classes:
-    - Ruby:
+    - Ruby: |
         Fixnum
         Bignum
         String
@@ -557,7 +557,7 @@
     - Ruby: |
         arr.size #=> 3
     - Python: |
-        arr.length #=> 3
+        len(arr) #=> 3
     - PHP: |
         count(arr) //=> 3
     - JavaScript: |
@@ -667,7 +667,7 @@
         hash.keys
     - Python: |
         mydict.keys()
-        for key in mydict.iterkeys()
+        for key in mydict.iterkeys():
     - PHP: |
         array_keys($hash)
     - JavaScript: |
