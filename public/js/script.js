@@ -2,11 +2,15 @@
   var RF = window.RF;
 
   $.extend(RF, {
+    // Options
+    default_languages: ['ruby'],
+
+    // Methods
     init: function() {
       var self = this;
 
       $.hashListen('', function() {
-        self.loadLanguages(['ruby', 'python']);
+        self.loadLanguages(self.default_languages);
         self.normalize();
         $(".preload").removeClass('preload');
       });
