@@ -375,6 +375,7 @@
   - 'Overriding instance[i]':
     - Ruby: |
         def [](i)
+        def []=(i, value)
     - Python: |
         def __getitem__(self, i):
         def __setitem__(self, i, value):
