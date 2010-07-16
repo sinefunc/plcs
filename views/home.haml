@@ -8,6 +8,7 @@
 - content.each do |hash|
   - hash.each do |section, features|
     %section.preload{ :id => to_slug(section) }
+      %a{ :name => to_slug(section) }
       %h2= section
       %table
         %thead

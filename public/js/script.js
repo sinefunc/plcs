@@ -81,7 +81,13 @@
   });
 
   $('.selector input:checkbox').live('change', function() {
-    window.location.hash = '#' + RF.getLanguages().join('+');
+    var langs = RF.getLanguages();
+    if (langs.length > 0) {
+      window.location.hash = '#' + langs.join('+');
+    }
+    else {
+      window.location.hash = '#none';
+    }
   });
 
   $(function() { RF.init(); });
