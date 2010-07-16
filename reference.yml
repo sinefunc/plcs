@@ -251,15 +251,20 @@
         def set_attr(self, val):
           self._attr = val
         attr = property(None, set_attr)
-
-        # Also: property(getter, setter,
-        #                deleter, doc)
       PHP: |
         public function __set($key, $val) {
           if ($key == 'attr')
             { $this->attr = $val; }
         }
-      JavaScript: |
+
+  - Getters and setters:
+      Ruby: |
+        # Defines `attr` and `attr=`
+        attr_accessor :attr
+      Python: |
+        property(get_attr, set_attr)
+        # Also:
+        # property(getter, setter, deleter, doc)
 
   - Getting a property with an arbitrary name:
       Ruby: |
