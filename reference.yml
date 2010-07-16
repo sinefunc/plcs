@@ -589,11 +589,25 @@
         arr.shift() #=> 0
         arr         #=> [1,2,3]
     - PHP: |
-        array_pop($arr);   //=> 3
+        array_pop($arr);   //=> 4
         $arr;              //=> [0,1,2,3]
         array_shift($arr); //=> 0
-        $arr;              //=> [1,2,3]
+        $arr;              //=>   [1,2,3]
     - JavaScript: |
+        arr.pop();    //=> 4
+        arr;          //=> [0,1,2,3]
+        arr.shift();  //=> 0
+        arr;          //=> [1,2,3]
+
+  - Checking for presence of items:
+    - Ruby: |
+       if [1, 2, 3].include?(2)
+    - Python: |
+        if 2 in [1, 2, 3]:
+    - PHP: |
+        if (in_array(2, array(1, 2, 3)) {}
+    - JavaScript: |
+        if (2 in [1, 2, 3]) {}
 
   - Searching:
     - Ruby: |
@@ -610,7 +624,7 @@
     - JavaScript: |
 
 # ===============================================================================
-- Hashes/Dictionaries:
+- Hash tables:
 # ===============================================================================
 
   - Initializing empty hashes:
@@ -625,7 +639,7 @@
 
   - Initializing with contents:
     - Ruby: |
-        { :red => 1, :green => 2 } 
+        { :red => 1, :green => 2 }
         { red: 1, green: 2 } # Ruby 1.9
         Hash.new([[:red, 1], [:green, 2]])
     - Python: |
@@ -640,13 +654,24 @@
     - Ruby: |
         hash.each do |key, val|
     - Python: |
-        for key, val in dict.iteritems():
+        for key, val in mydict.iteritems():
     - PHP: |
         foreach ($hash as $key => $val) {}
         // Also array_walk()
     - JavaScript: |
         for (key in hash) {
           var value = hash[key];
+
+  - Keys:
+    - Ruby: |
+        hash.keys
+    - Python: |
+        mydict.keys()
+        for key in mydict.iterkeys()
+    - PHP: |
+        array_keys($hash)
+    - JavaScript: |
+        for (key in hash) {}
 
 # ===============================================================================
 - Enumerables:
@@ -862,14 +887,15 @@
     - Ruby: |
         'Hi'.include?('i')  #=> true
     - Python: |
-        'Hi'.find('i')
+        'i' in 'Hi'     #=> true
+        'Hi'.find('i')  #=> 1
         'Hi'.find('o')  #=> -1
     - PHP: |
         strchr()
-        strpos('Hi', 'i')
+        strpos('Hi', 'i') //=> 1
         strpos('Hi', 'o') //=> -1
     - JavaScript: |
-        'Hi'.indexOf('i')
+        'Hi'.indexOf('i')  //=> 1
         'Hi'.indexOf('o')  //=> -1
 
 # ===============================================================================
