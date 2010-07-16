@@ -742,13 +742,14 @@
     - Ruby: |
         fpath = 'dir/sub/file.txt'
         File.dirname(fpath)  #=> 'dir/sub'
-        ...
+        File.basename(fpath) #=> 'file.txt'
     - Python: |
         fpath = 'dir/sub/file.txt'
         os.path.dirname(fpath)   #=> 'dir/sub'
         os.path.basename(fpath)  #=> 'file.txt'
-        os.path.split(fpath)[0]  #=> 'dir/sub'
-        os.path.split(fpath)[1]  #=> 'file.txt'
+
+        os.path.split(fpath)
+        #=> ['dir/sub', 'file.txt']
     - PHP: |
         $fpath = 'dir/sub/file.txt';
         dirname($fpath);   //=> 'dir/sub'
