@@ -213,7 +213,7 @@
         }
     - JavaScript: |
 
-  - Getting a property with an arbitrtary name:
+  - Getting a property with an arbitrary name:
     - Ruby: |
         obj.send :attr
         obj.send :'attr=', value
@@ -291,6 +291,17 @@
         public static function meth() {}
     - JavaScript: |
         Class.meth = function(args) {}
+
+  - Running a method with an arbitrary name:
+    - Ruby: |
+        obj.send :method_name, arg1, arg2
+        # obj.__send__ is alsa available
+    - Python: |
+        obj.__send__('method_name')
+    - PHP: |
+        $obj->{'method_name'}(arg1, arg2);
+    - JavaScript: |
+        obj['method_name'](arg1, arg2);
 
 # ===============================================================================
 - Anonymous functions:
