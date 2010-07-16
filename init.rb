@@ -10,6 +10,7 @@ require "coderay"
 class Main < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :run, lambda { $0 == __FILE__ }
+  set :reference_file, File.join(File.dirname(__FILE__), 'reference.yml')
 
   get '/:languages' do |langs|
     langs.gsub!(' ', '+')
@@ -17,7 +18,7 @@ class Main < Sinatra::Base
   end
 
   get '/' do
-    @ref = Reference.new(File.join(settings.root, 'reference.yml'))
+    @ref = Reference.new(settings.reference_file)
     haml :home, {}, :content => @ref.content, :languages => @ref.languages
   end
 end
