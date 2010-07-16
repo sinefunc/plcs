@@ -759,7 +759,9 @@
         Dir.pwd
         File.dirname(__FILE__)
     - Python: |
+        os.getcwd()
     - PHP: |
+        getcwd()
         dirname(__FILE__)
     - JavaScript: |
 
