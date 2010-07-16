@@ -390,7 +390,7 @@
 
   - 'Catching a missing attrib/method':
     - Ruby: |
-        def method_missing(meth, args, ...)
+        def method_missing(meth, *args)
     - Python: |
         def __getattr__(self, attr):
     - PHP: |
