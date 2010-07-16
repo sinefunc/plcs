@@ -33,6 +33,7 @@ td.php    { background: #f0f3fa; }
 .even td.php    { background: #e0e3ea; }
 */
 
+pre { font-family: 'lucida console', monospace; font-size: 11px; text-indent: -3px; letter-spacing: -1px; }
 td.empty  { background: transparent; }
 
 div.CodeRay { }
