@@ -79,7 +79,7 @@
         __CLASS__ // from within
         get_class($instance) #=> 'ClassName'
     - JavaScript: |
-        // .prototype? dunno
+        instance.constructor //=> ClassName
 
   - 'Calling methods (from inside the class)':
     - Ruby: |
