@@ -545,9 +545,9 @@
     - Python: |
         arr = list()
     - PHP: |
-        $arr = [];
+        $arr = array();
     - JavaScript: |
-        // ...
+        var arr = [];
 
   - Initializing (with contents):
     - Ruby: |
@@ -646,27 +646,27 @@
 
   - Initializing empty hashes:
     - Ruby: |
-        Hash.new()
+        hash = Hash.new()
     - Python: |
-        dict()
+        mydict = dict()
     - PHP: |
-        array()
+        $hash = array();
     - JavaScript: |
-        {}
+        var hash = {};
 
   - Initializing with contents:
     - Ruby: |
-        { :red => 1, :green => 2 }
-        { red: 1, green: 2 } # Ruby 1.9
-        Hash.new([[:red, 1], [:green, 2]])
+        hash = { :red => 1, :green => 2 }
+        hash = { red: 1, green: 2 } # Ruby 1.9
+        hash = Hash.new([[:red, 1], [:green, 2]])
     - Python: |
-        { 'red': 1, 'green': 2 }
-        dict([['red', 1], ['green', 2]])
-        dict(red=1, green=2)
+        mydict = { 'red': 1, 'green': 2 }
+        mydict = dict([['red', 1], ['green', 2]])
+        mydict = dict(red=1, green=2)
     - PHP: |
-        array( 'red' => 1, 'green' => 2 )
+        $arr = array( 'red' => 1, 'green' => 2 );
     - JavaScript: |
-        { 'red': 1, 'green': 2 }
+        var arr = { 'red': 1, 'green': 2 };
 
   - Iterating hashes:
     - Ruby: |
@@ -674,11 +674,11 @@
     - Python: |
         for key, val in mydict.iteritems():
     - PHP: |
-        foreach ($hash as $key => $val) {}
+        foreach ($arr as $key => $val) {}
         // Also array_walk()
     - JavaScript: |
-        for (key in hash) {
-          var value = hash[key];
+        for (key in arr) {
+          var value = arr[key];
 
   - Keys:
     - Ruby: |
@@ -687,9 +687,9 @@
         mydict.keys()
         for key in mydict.iterkeys():
     - PHP: |
-        array_keys($hash)
+        array_keys($arr)
     - JavaScript: |
-        for (key in hash) {}
+        for (key in arr) {}
 
 # ===============================================================================
 - Enumerables:
