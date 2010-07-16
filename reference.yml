@@ -7,7 +7,7 @@
 - Python
 - PHP
 - JavaScript
-#- CPlusPlus
+#- CPP
 
 ---
 # ===============================================================================
@@ -37,7 +37,7 @@
           this.meth = function() { /* ... */ }
           return this;
         };
-      CPlusPlus: |
+      CPP: |
         class ClassName {
         };
 
@@ -49,7 +49,7 @@
       PHP: |
         class ClassName extends Parent
       JavaScript: |
-      CPlusPlus: |
+      CPP: |
         class ClassName : public Parent {
         };
 
@@ -59,7 +59,7 @@
         class ClassName(Parent1, Parent2):
       PHP: |
       JavaScript: |
-      CPlusPlus: |
+      CPP: |
         class ClassName : public Parent1,
                           public Parent2 {};
         // Be sure to use `virtual public` if they
@@ -78,7 +78,7 @@
       JavaScript: |
         var instance = new C();
         var instance = new C(args);
-      CPlusPlus: |
+      CPP: |
         ClassName instance = ClassName();
 
         // in the stack, as opposed to the heap:
@@ -114,7 +114,7 @@
         $this->meth(args);
       JavaScript: |
         this.meth(args);
-      CPlusPlus: |
+      CPP: |
         meth(args);
 
   - 'Calling methods (elsewhere)':
@@ -128,7 +128,7 @@
         $instance->meth(args);
       JavaScript: |
         instance.meth(args);
-      CPlusPlus: |
+      CPP: |
         instance.meth(args);
 
         MyClass* ptr = &instance;
@@ -145,7 +145,7 @@
         ClassName::meth(args);
       JavaScript: |
         ClassName.meth(args);
-      CPlusPlus: |
+      CPP: |
         ClassName::meth(args);
 
   - Calling a parent class method:
