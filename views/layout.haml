@@ -14,6 +14,5 @@
       - languages.each do |language|
         != "window.RF.languages.push('#{to_slug(language)}');"
 
-    %script(type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js')
-    %script(type='text/javascript' src='/js/script.js')
+    != js_assets :base
 

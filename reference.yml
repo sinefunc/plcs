@@ -123,7 +123,7 @@
     - Python: |
         class B(A):
           def meth(self):
-            super(A, self).meth()
+            return super(A, self).meth()
     - PHP: |
         function meth() {
           return parent::meth();
@@ -513,7 +513,8 @@
         // is_string(), is_bool(), is_object(),
         // is_array()
     - JavaScript: |
-        // TODO
+        if (typeof obj == "string") {}
+        // also: object, function, array
 
   - Casting:
     - Ruby: |
@@ -625,7 +626,7 @@
     - PHP: |
         if (in_array(2, array(1, 2, 3)) {}
     - JavaScript: |
-        if (2 in [1, 2, 3]) {}
+        if ([1, 2, 3].indexOf(2) != -1) {}
 
   - Searching:
     - Ruby: |
@@ -934,7 +935,7 @@
     - PHP: |
         str_replace('Hi', 'i', 'ey')
     - JavaScript: |
-        'Hi'.split('i').join('ey')
+        'Hi'.replace('i', 'ey')
 
   - Finding:
     - Ruby: |
