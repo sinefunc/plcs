@@ -38,7 +38,9 @@
 
         if (languages.indexOf(lang) != -1) {
           $('.' + lang + ':hidden').show();
-          self.$checkbox(lang).attr('checked', 1);
+          self.$checkbox(lang)
+            .parents('label').show().end()
+            .attr('checked', 1);
         }
         else {
           $('.' + lang).hide();

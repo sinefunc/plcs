@@ -7,7 +7,7 @@
 - Python
 - PHP
 - JavaScript
-#- CPP
+- CPP
 
 ---
 # ===============================================================================
@@ -875,6 +875,8 @@
         print "hello";
       JavaScript: |
         document.writeln("hello");
+      CPP: |
+        std::cout << "Hello";
 
   - Error output:
       Ruby: |
@@ -884,7 +886,9 @@
       PHP: |
         fwrite(STDERR, "Error\n");
       JavaScript: |
-        console.log("hello");
+        console.log("Error");
+      CPP: |
+        std::cerr << "Error" << std::endl;
 
 # ===============================================================================
 - Strings:
@@ -913,6 +917,13 @@
         "a" . "b"
       JavaScript: |
         "a" + "b"
+      CPP: |
+        std::string mystring;
+        mystring + mystring2;
+
+        char str[80];
+        strcpy(str, "a");
+        strcat(str, "b");
 
   - 'Uppercase/lowercase':
       Ruby: |

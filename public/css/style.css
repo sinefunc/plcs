@@ -7,17 +7,6 @@
 /* Compact mode (one only) */
 body.compact section { float: left; margin-bottom: 20px; }
 body.compact thead th { text-indent: -9999px; }
-/*
-body.compact th,
-body.compact tr,
-body.compact td { display: block; }
-body.compact table { padding: 0 20px; }
-body.compact tbody th { padding: 0; text-align: left; }
-body.compact tbody h4 { padding: 10px 0 0 0; width: auto; }
-body.compact thead th { display: none; }
-body.compact thead th.heading { display: block; }
-body.compact thead h2 { float: none; text-align: left; padding: 0; }
-*/
 
 html, body { margin: 0; padding: 0; }
 body { font-size: 11pt; font-family: helvetica, arial, sans-serif; line-height: 13pt; }
@@ -56,6 +45,20 @@ td.php    { background: #f0f3fa; }
 pre { font-family: 'lucida console', monospace; font-size: 11px; text-indent: -3px; letter-spacing: -1px; }
 td.empty  { opacity: 0.5; }
 
+/* LOL */
+#cpp-checkbox { display: none; }
+
+/*
+body.compact th,
+body.compact tr,
+body.compact td { display: block; }
+body.compact table { padding: 0 20px; }
+body.compact tbody th { padding: 0; text-align: left; }
+body.compact tbody h4 { padding: 10px 0 0 0; width: auto; }
+body.compact thead th { display: none; }
+body.compact thead th.heading { display: block; }
+body.compact thead h2 { float: none; text-align: left; padding: 0; }
+*/
 div.CodeRay { }
 
 span.CodeRay { white-space: pre; border: 0px; padding: 2px }
