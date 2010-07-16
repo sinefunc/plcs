@@ -64,7 +64,7 @@
 
       // Hide unused sections.
       $("section").each(function() {
-        var $trs = $(this).find("tr:not(.hidden)");
+        var $trs = $(this).find("tbody tr:not(.hidden)");
         if ($trs.length == 0) { $(this).addClass('hidden'); }
         else { $(this).removeClass('hidden'); }
       });

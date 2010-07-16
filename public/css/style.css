@@ -10,18 +10,21 @@ body { padding-top: 40px; }
 h2 { text-align: center; font-size: 1.1em; margin: 0; padding: 30px 0 0 0; }
 table { margin: 0 auto; table-layout: fixed; border-collapse: separate; border-spacing: 0 8px; }
 th, td { text-align: left; vertical-align: top; padding: 10px 5px; }
-pre { padding: 0; margin: 0; font-size: 9pt; width: 300px; }
-th { font-size: 0.8em; color: #aaa; padding: 0; text-align: center; }
-tbody th:first-child { text-align: right; }
-h4 { width: 175px; margin: 0; padding: 0; font-size: 1em; font-weight: normal; margin-right: 20px;  }
 
+/* Features */
+tbody th { text-align: right; padding-top: 14px; }
+h4 { width: 175px; margin: 0; padding: 0; font-size: 0.8em; font-weight: normal; }
+h4 { margin-right: 16px; font-family: georgia; color: #777; }
+
+/* Data */
 td { padding: 14px 15px; background: #f8f8f8; -webkit-border-radius: 0px; border-bottom: solid 1px #ddd; border-right: solid 1px #ddd;  }
+pre { padding: 0; margin: 0; font-size: 9pt; width: 300px; }
 
 /* Headers */
 thead h2 { margin: 0; padding: 0 20px; text-align: right; color: #333; font-size: 1.3em; background: white; float: right; }
 thead h2 { font-family: georgia; font-weight: normal; font-style: italic; }
 thead strong { text-transform: uppercase; font-size: 0.9em; }
-thead th { background: #888; color: #fff; }
+thead th { background: #888; color: #fff; padding: 0; text-align: center; font-size: 0.8em; }
 
 /* Colors */
 td.ruby   { background: #f7f0f0; }
