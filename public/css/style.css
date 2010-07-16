@@ -6,7 +6,7 @@
 
 /* Compact mode (one only) */
 body.compact section { float: left; margin-bottom: 20px; }
-
+body.compact thead th { text-indent: -9999px; }
 /*
 body.compact th,
 body.compact tr,
