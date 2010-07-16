@@ -14,10 +14,11 @@
         self.normalize();
       });
 
-      $.hashListen('beta', function() {
+      $("a[href=#beta]").live("click", function() {
         $("label:hidden").fadeIn();
         $(".selector a").hide();
         self.normalize();
+        return false;
       });
 
       $.hashListen('all', function() {
