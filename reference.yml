@@ -519,6 +519,7 @@
         Integer
         Time
         RegExp
+        Symbol
       Python: |
         int
         bool
