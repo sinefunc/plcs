@@ -9,6 +9,8 @@ languages:
   - PHP
   - JavaScript
   - CPP
+  - Markdown
+  - RST
 
 ---
 # ===============================================================================
@@ -1105,3 +1107,22 @@ languages:
         // JQuery:
         $node.parents("form");
         $node.find(">*");
+
+# ===============================================================================
+- Markup reference:
+# ===============================================================================
+
+  - Inline styles:
+      Markdown: |
+        **bold**
+        *italic*
+      RST: |
+        **bold**
+
+  - Headings:
+      Markdown: |
+        Heading
+        =======
+      RST: |
+        Heading
+        =======

@@ -12,14 +12,22 @@
       $.hashListen('', function() {
         self.loadLanguages(self.default_languages);
         self.normalize();
-        $(".preload").removeClass('preload');
+      });
+
+      $.hashListen('beta', function() {
+        $("label").show();
+        self.normalize();
+      });
+
+      $.hashListen('all', function() {
+        self.loadLanguages(self.languages);
+        self.normalize();
       });
 
       $.hashListen(':languages', function(languages) {
         languages = languages.split('+');
         self.loadLanguages(languages);
         self.normalize();
-        $(".preload").removeClass('preload');
       });
 
     },
@@ -83,8 +91,26 @@
         else { $(this).removeClass('hidden'); }
       });
 
+      // Hide unused columns.
+      $("section").each(function() {
+        for (i in langs) {
+          var lang = langs[i];
+          var $tds = $(this).find("td."+lang);
+          var $stuff = $(this).find("td."+lang+",th."+lang);
+          if ($tds.text().trim() == '') {
+            $stuff.hide(); // .css({'opacity': '0'});
+          }
+          else {
+            $stuff.show(); // .css({'opacity': '1.0'});
+          }
+        }
+      });
+
       // Rearrange table stripes
       self.stripe();
+
+      // Make sure everything is shown.
+      $(".preload").removeClass('preload');
     },
 
     // Returns the selected languages.
