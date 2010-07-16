@@ -4,6 +4,9 @@
 .selector { position: fixed; top: 0; left: 0; width: 100%; padding: 0; background: #eee; line-height: 30px; font-size: 8pt; color: #333; height: 30px; text-align: center; -webkit-box-shadow: 0 0 5px #888; -moz-box-shadow: 0 0 5px #888; }
 .selector label { margin: 0 10px; }
 
+/* Compact mode (one only) */
+body.compact section { float: left; margin-bottom: 20px; }
+
 html, body { margin: 0; padding: 0; }
 body { font-size: 11pt; font-family: helvetica, arial, sans-serif; line-height: 13pt; }
 body { padding-top: 40px; } 

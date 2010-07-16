@@ -41,6 +41,14 @@
           self.$checkbox(lang).attr('checked', 0);
         }
       }
+
+      // Compact mode.
+      if (languages.length == 1) {
+        $(document.body).addClass("compact");
+      }
+      else {
+        $(document.body).removeClass("compact");
+      }
     },
 
     normalize: function() {
