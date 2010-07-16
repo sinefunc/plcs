@@ -11,6 +11,11 @@ class Main < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :run, lambda { $0 == __FILE__ }
 
+  get '/:languages' do |langs|
+    langs.gsub!(' ', '+')
+    redirect "/##{langs}", 301
+  end
+
   get '/' do
     require 'yaml'
     content = YAML::load_file(File.join(settings.root, 'reference.yml'))
