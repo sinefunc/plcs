@@ -299,7 +299,7 @@
         obj.send :method_name, arg1, arg2
         # obj.__send__ is also available
     - Python: |
-        obj.__send__('method_name')
+        obj.getattr('method_name')(arg1, arg2)
     - PHP: |
         $obj->{'method_name'}(arg1, arg2);
     - JavaScript: |
