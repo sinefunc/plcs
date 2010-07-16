@@ -412,7 +412,7 @@
       - Ruby: |
           def <<(other)
           def +(other)    # also * / - < ...
-          def @-          # unary -
+          def -@          # unary -, also +@
           def <=>(other)  # include Comparable
       - Python: |
           def __add__(self, other):
