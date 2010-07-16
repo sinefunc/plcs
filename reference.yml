@@ -1057,3 +1057,26 @@
       JavaScript: |
         Math.sin(theta)
         Math.PI //=> 3.14159...
+
+# ===============================================================================
+- DOM Manipulation:
+# ===============================================================================
+
+  - DOM manipulation:
+      JavaScript: |
+        createNode(type, name);
+
+        // JQuery:
+        $("<div>");
+
+  - DOM traversion:
+      JavaScript: |
+        node.parentNode();
+        node.childNodes();
+        node.firstChild();
+        node.nextSibling();
+        node.prevSibling();
+
+        // JQuery:
+        $node.parents("form");
+        $node.find(">*");
