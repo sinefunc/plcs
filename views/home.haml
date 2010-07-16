@@ -1,9 +1,10 @@
 %div.selector.preload
   - languages.each do |language|
     - lang_code = to_slug(language)
-    %label{:id => "#{lang_code}-checkbox"}
-      %input{ :type => 'checkbox', :name => lang_code }/
-      %span= language
+    .tabs
+      %label{:id => "#{lang_code}-checkbox"}
+        %input{ :type => 'checkbox', :name => lang_code }/
+        %a{:href => "##{lang_code}"}= language
     %a.more{:href => '#beta'}
       %span= 'Show others'
 

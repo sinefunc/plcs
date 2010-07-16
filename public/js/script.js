@@ -15,8 +15,8 @@
       });
 
       $("a[href=#beta]").live("click", function() {
-        $("label:hidden").fadeIn();
-        $(".selector a").hide();
+        $("label:hidden").show();
+        $(this).hide();
         self.normalize();
         return false;
       });
@@ -49,12 +49,14 @@
         if (languages.indexOf(lang) != -1) {
           $('.' + lang + ':hidden').show();
           self.$checkbox(lang)
-            .parents('label').show().end()
+            .parents('label').show().addClass('active').end()
             .attr('checked', 1);
         }
         else {
           $('.' + lang).hide();
-          self.$checkbox(lang).attr('checked', 0);
+          self.$checkbox(lang)
+            .parents('label.active').removeClass('active').end()
+            .attr('checked', 0);
         }
       }
 
