@@ -31,7 +31,7 @@
     - Ruby: |
         class ClassName < Parent
     - Python: |
-        class C(Parent):
+        class ClassName(Parent):
     - PHP: |
         class ClassName extends Parent
     - JavaScript: |
@@ -834,23 +834,27 @@
 
   - Rounding off:
     - Ruby: |
+        (2.5).to_i    #=> 2
         (2.5).floor   #=> 2
         (2.5).ceil    #=> 3
-        (2.5).to_i    #=> 2
         (2.5).round   #=> 3
     - Python: |
+        math.trunc(2.5)    #=> 2
         math.floor(2.5)    #=> 2
         math.ceil(2.5)     #=> 3
-        math.trunc(2.5)    #=> 2
         round(2.5)         #=> 3
         round(3.14159, 2)  #=> 3.14
     - PHP: |
+        (int) 2.5          //=> 2
         floor(2.5)         //=> 2
         ceil(2.5)          //=> 3
         round(2.5)         //=> 3
         round(3.14159, 2)  //=> 3.14
     - JavaScript: |
-        Math.floor(2.5) // 2
+        parseInt(2.5)   //=> 2
+        Math.floor(2.5) //=> 2
+        Math.ceil(2.5)  //=> 3
+        Math.round(2.5) //=> 3
 
   - Minimum and maximum:
     - Ruby: |
@@ -875,8 +879,9 @@
         import math
         math.pow(2, 8) #=> 256
     - PHP: |
+        pow(2, 8) //=> 256
     - JavaScript: |
-        Math.pow(2, 8) #=> 256
+        Math.pow(2, 8) //=> 256
 
   - Trigonometry:
     - Ruby: |
