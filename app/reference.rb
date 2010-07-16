@@ -14,7 +14,7 @@ class Reference
   def initialize
     require "yaml"
     stream = YAML::load_stream(File.open(filename))
-    @languages = stream.documents[0]
+    @languages = stream.documents[0]['languages']
 
     # Make sure the snippets are an array of hashes.
     @content = stream.documents[1].map do |hash|
