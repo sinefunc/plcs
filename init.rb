@@ -20,9 +20,11 @@ class Main < Sinatra::Base
   get '/' do
     @ref = Reference.new
 
-    etag @ref.mtime
-    last_modified @ref.mtime
-    cache_control :public, :max_age => 86400
+    unless settings.development?
+      etag @ref.mtime
+      last_modified @ref.mtime
+      cache_control :public, :max_age => 86400
+    end
 
     haml :home, {}, :content => @ref.content, :languages => @ref.languages
   end

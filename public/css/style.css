@@ -1,8 +1,11 @@
 .hidden { display: none; }
 .preload { display: none; }
 
+/* Top */
 .selector { position: fixed; top: 0; left: 0; width: 100%; padding: 0; background: #eee; line-height: 30px; font-size: 8pt; color: #333; height: 30px; text-align: center; -webkit-box-shadow: 0 0 5px #888; -moz-box-shadow: 0 0 5px #888; }
 .selector label { margin: 0 10px; }
+.selector a { position: absolute; right: 5px; top: 0px; color: #999; text-decoration: none; opacity: 0; }
+.selector a:hover { opacity: 1; }
 
 /* Compact mode (one only) */
 body.compact section { float: left; margin-bottom: 20px; }

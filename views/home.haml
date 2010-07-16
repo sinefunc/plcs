@@ -4,6 +4,8 @@
     %label{:id => "#{lang_code}-checkbox"}
       %input{ :type => 'checkbox', :name => lang_code }/
       %span= language
+    %a.more{:href => '#beta'}
+      %span= 'Show others'
 
 - content.each do |hash|
   - hash.each do |section, features|

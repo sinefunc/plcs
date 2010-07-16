@@ -15,7 +15,8 @@
       });
 
       $.hashListen('beta', function() {
-        $("label").show();
+        $("label:hidden").fadeIn();
+        $(".selector a").hide();
         self.normalize();
       });
 
