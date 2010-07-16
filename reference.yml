@@ -645,6 +645,7 @@
     - Python: |
         { 'red': 1, 'green': 2 }
         dict([['red', 1], ['green', 2]])
+        dict(red=1, green=2)
     - PHP: |
         array( 'red' => 1, 'green' => 2 )
     - JavaScript: |
