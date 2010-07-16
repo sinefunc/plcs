@@ -12,15 +12,16 @@ table { margin: 0 auto; table-layout: fixed; border-collapse: separate; border-s
 th, td { text-align: left; vertical-align: top; padding: 10px 5px; }
 pre { padding: 0; margin: 0; font-size: 9pt; width: 300px; }
 th { font-size: 0.8em; color: #aaa; padding: 0; text-align: center; }
-th:first-child { text-align: right; vertical-align: middle; }
+tbody th:first-child { text-align: right; }
 h4 { width: 175px; margin: 0; padding: 0; font-size: 1em; font-weight: normal; margin-right: 20px;  }
 
 td { padding: 14px 15px; background: #f8f8f8; -webkit-border-radius: 0px; border-bottom: solid 1px #ddd; border-right: solid 1px #ddd;  }
 
-/* Hide headers */
-thead tr { visibility: hidden; }
-table:hover thead tr { visibility: visible; }
-thead strong { position: relative; top: 10px; }
+/* Headers */
+thead h2 { margin: 0; padding: 0 20px; text-align: right; color: #333; font-size: 1.3em; background: white; float: right; }
+thead h2 { font-family: georgia; font-weight: normal; font-style: italic; }
+thead strong { text-transform: uppercase; font-size: 0.9em; }
+thead th { background: #888; color: #fff; }
 
 /* Colors */
 td.ruby   { background: #f7f0f0; }

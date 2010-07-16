@@ -53,7 +53,7 @@
       selector = selector.join(",");
 
       // Hide the unused table rows.
-      $("tr").each(function() {
+      $("tbody tr").each(function() {
         var $tds   = $(this).find(selector),
             $th    = $(this).find('th'),
             text   = $tds.text().trim();
