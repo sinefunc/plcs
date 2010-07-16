@@ -1,8 +1,13 @@
 ---
+# ===============================================================================
+# Languages:
+# ===============================================================================
+
 - Ruby
 - Python
 - PHP
 - JavaScript
+#- CPlusPlus
 
 ---
 # ===============================================================================
@@ -32,6 +37,9 @@
           this.meth = function() { /* ... */ }
           return this;
         };
+      CPlusPlus: |
+        class ClassName {
+        };
 
   - Class inheritance:
       Ruby: |
@@ -41,6 +49,9 @@
       PHP: |
         class ClassName extends Parent
       JavaScript: |
+      CPlusPlus: |
+        class ClassName : public Parent {
+        };
 
   - Multiple inheritance:
       Ruby: |
@@ -48,6 +59,11 @@
         class ClassName(Parent1, Parent2):
       PHP: |
       JavaScript: |
+      CPlusPlus: |
+        class ClassName : public Parent1,
+                          public Parent2 {};
+        // Be sure to use `virtual public` if they
+        // share ancestors
 
   - Instanciation:
       Ruby: |
@@ -62,6 +78,11 @@
       JavaScript: |
         var instance = new C();
         var instance = new C(args);
+      CPlusPlus: |
+        ClassName instance = ClassName();
+
+        // in the stack, as opposed to the heap:
+        ClassName* instance = new ClassName();
 
   - Subclass checking:
       Ruby: |
@@ -72,7 +93,6 @@
       PHP: |
         if ($instance instanceof ClassName)
         if (is_instance_of($instance, ClassName))
-      JavaScript: |
 
   - Getting the class:
       Ruby: |
@@ -94,6 +114,8 @@
         $this->meth(args);
       JavaScript: |
         this.meth(args);
+      CPlusPlus: |
+        meth(args);
 
   - 'Calling methods (elsewhere)':
       Ruby: |
@@ -106,6 +128,11 @@
         $instance->meth(args);
       JavaScript: |
         instance.meth(args);
+      CPlusPlus: |
+        instance.meth(args);
+
+        MyClass* ptr = &instance;
+        ptr->meth(args);
 
   - Calling class methods:
       Ruby: |
@@ -118,6 +145,8 @@
         ClassName::meth(args);
       JavaScript: |
         ClassName.meth(args);
+      CPlusPlus: |
+        ClassName::meth(args);
 
   - Calling a parent class method:
       Ruby: |

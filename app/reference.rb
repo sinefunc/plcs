@@ -14,7 +14,7 @@ class Reference
         a[section] = features.map do |hash2|
           hash2.inject({}) do |ac, (feature, snippets)|
             ac[feature] = languages.map do |language|
-              { language => snippets[language] }
+              { language => (snippets[language] || '') }
             end; ac
           end
         end; a
