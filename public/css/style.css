@@ -7,6 +7,18 @@
 /* Compact mode (one only) */
 body.compact section { float: left; margin-bottom: 20px; }
 
+/*
+body.compact th,
+body.compact tr,
+body.compact td { display: block; }
+body.compact table { padding: 0 20px; }
+body.compact tbody th { padding: 0; text-align: left; }
+body.compact tbody h4 { padding: 10px 0 0 0; width: auto; }
+body.compact thead th { display: none; }
+body.compact thead th.heading { display: block; }
+body.compact thead h2 { float: none; text-align: left; padding: 0; }
+*/
+
 html, body { margin: 0; padding: 0; }
 body { font-size: 11pt; font-family: helvetica, arial, sans-serif; line-height: 13pt; }
 body { padding-top: 40px; } 
@@ -16,11 +28,11 @@ th, td { text-align: left; vertical-align: top; padding: 10px 5px; }
 
 /* Features */
 tbody th { text-align: right; padding-top: 14px; }
-h4 { width: 175px; margin: 0; padding: 0; font-size: 0.8em; font-weight: normal; }
-h4 { margin-right: 16px; font-family: georgia; color: #777; }
+tbody h4 { width: 175px; margin: 0; padding: 0; font-size: 0.8em; font-weight: normal; }
+tbody h4 { margin-right: 16px; font-family: georgia; color: #777; }
 
 /* Data */
-td { padding: 14px 15px; background: #f8f8f8; -webkit-border-radius: 0px; border-bottom: solid 1px #ddd; border-right: solid 1px #ddd;  }
+td { padding: 14px 15px; background: #f0f0f0; -webkit-border-radius: 0px; border-bottom: solid 1px #ddd; border-right: solid 1px #ddd;  }
 pre { padding: 0; margin: 0; font-size: 9pt; width: 300px; }
 
 /* Headers */
@@ -32,7 +44,7 @@ thead th.heading { background: transparent; }
 
 /* Colors */
 td.ruby   { background: #f7f0f0; }
-td.python { background: #f0faf3; }
+td.python { background: #edfaf0; }
 td.php    { background: #f0f3fa; }
 
 /*
