@@ -471,6 +471,7 @@
         int
         bool
         str
+        unicode
     - PHP: |
     - JavaScript: |
         Number
@@ -727,19 +728,39 @@
 - Files:
 # ===============================================================================
 
-  - Stuff:
+  - Path joining:
     - Ruby: |
         File.join('dir', 'file')
-        File.dirname
-        File.dirname(__FILE__)
-        ...
     - Python: |
         os.path.join('dir', 'file')
-        os.path.split('dir/sub/file.txt')[0]
-        os.path.split('dir/sub/file.txt')[1]
     - PHP: |
-        basename()
+        'dir' . DIRECTORY_SEPARATOR . 'file'
+    - JavaScript: |
+
+  - Getting path info:
+    - Ruby: |
+        fpath = 'dir/sub/file.txt'
+        File.dirname(fpath)  #=> 'dir/sub'
         ...
+    - Python: |
+        fpath = 'dir/sub/file.txt'
+        os.path.dirname(fpath)   #=> 'dir/sub'
+        os.path.basename(fpath)  #=> 'file.txt'
+        os.path.split(fpath)[0]  #=> 'dir/sub'
+        os.path.split(fpath)[1]  #=> 'file.txt'
+    - PHP: |
+        $fpath = 'dir/sub/file.txt';
+        dirname($fpath);   //=> 'dir/sub'
+        basename($fpath);  //=> 'file.txt'
+    - JavaScript: |
+
+  - Getting current directory:
+    - Ruby: |
+        Dir.pwd
+        File.dirname(__FILE__)
+    - Python: |
+    - PHP: |
+        dirname(__FILE__)
     - JavaScript: |
 
   - File existence check:
@@ -823,6 +844,16 @@
         "Hi {$name}"
         sprintf('Hi %s', $name)
     - JavaScript: |
+
+  - Concatenation:
+    - Ruby: |
+        "a" + "b"
+    - Python: |
+        "a" + "b"
+    - PHP: |
+        "a" . "b"
+    - JavaScript: |
+        "a" + "b"
 
   - 'Uppercase/lowercase':
     - Ruby: |
