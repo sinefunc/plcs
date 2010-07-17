@@ -78,9 +78,9 @@
       $("tbody tr").each(function() {
         var $tds   = $(this).find(selector),
             $th    = $(this).find('th'),
-            text   = $tds.text().trim();
+            text   = $tds.text();
 
-        if (text == '') { $(this).addClass('hidden'); }
+        if (text.match(/^\s*$/) != null) { $(this).addClass('hidden'); }
         else { $(this).removeClass('hidden'); }
       });
 
@@ -97,7 +97,7 @@
           var lang = langs[i];
           var $tds = $(this).find("td."+lang);
           var $stuff = $(this).find("td."+lang+",th."+lang);
-          if ($tds.text().trim() == '') {
+          if ($tds.text().match(/^\s*$/) != null) {
             $stuff.addClass('unused');
           }
           else {
