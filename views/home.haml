@@ -14,33 +14,34 @@
             - langs.each do |lang|
               %option{:value => lang_path(section, lang)}!= "&nbsp; &nbsp; #{lang}"
 
-- content.each_hash do |section, features|
-  %section.preload{ :id => to_slug(section) }
-    %a{ :name => to_slug(section) }
-    -# %h2= section
-    %table
-      %thead
-        %tr
-          %th.heading
-            %h2= section
-          - languages.each do |language|
-            %th{ :class => to_slug(language) }
-              %strong= language
-
-      %tbody
-        - features.each_hash do |feature, snippets|
+#content
+  - content.each_hash do |section, features|
+    %section.preload{ :id => to_slug(section) }
+      %a{ :name => to_slug(section) }
+      -# %h2= section
+      %table
+        %thead
           %tr
-            %th
-              %h4= feature
-            - snippets.each_hash do |language, code|
-              - language = to_slug(language)
+            %th.heading
+              %h2= section
+            - languages.each do |language|
+              %th{ :class => to_slug(language) }
+                %strong= language
 
-              - if code.strip == ''
-                %td{:class => "#{language} empty"}
-                  %pre{:class => language}
+        %tbody
+          - features.each_hash do |feature, snippets|
+            %tr
+              %th
+                %h4= feature
+              - snippets.each_hash do |language, code|
+                - language = to_slug(language)
 
-              - else
-                %td{:class => language}
-                  %pre{:class => language}
-                    = format_code(code, language)
+                - if code.strip == ''
+                  %td{:class => "#{language} empty"}
+                    %pre{:class => language}
+
+                - else
+                  %td{:class => language}
+                    %pre{:class => language}
+                      = format_code(code, language)
 

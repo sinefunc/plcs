@@ -18,6 +18,7 @@ class Main
       end
 
       files << '/js/jquery.hashlisten.js'
+      files << '/js/jquery.masonry.min.js'
       files << '/js/script.js'
 
       files.map do |file|

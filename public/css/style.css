@@ -20,6 +20,10 @@
 
 .selector .tabs.multiple input { opacity: 1; }
 
+/* Content */
+#content { overflow: hidden; }
+xbody.compact #content { margin: 0 auto; width: 1100px; }
+
 /* Compact mode (one only) */
 body.compact section { float: left; margin-bottom: 20px; }
 body.compact thead th { text-indent: -9999px; }
@@ -30,7 +34,6 @@ body { padding-top: 40px; }
 h2 { text-align: center; font-size: 1.1em; margin: 0; padding: 30px 0 0 0; }
 table { margin: 0 auto; table-layout: fixed; border-collapse: separate; border-spacing: 0 8px; }
 th, td { text-align: left; vertical-align: top; padding: 10px 5px; }
-
 
 /* Features */
 tbody th { text-align: right; padding-top: 14px; }
