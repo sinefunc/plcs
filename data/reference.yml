@@ -17,10 +17,9 @@ languages:
 
   - '':
       CPP: |
-        /* C++ is only here as a comparison to other
-         * languages; on it's own, the C++ notes are
-         * a bit incomplete.
-         */
+        // C++ is only here to serve as a comparison
+        // to other languages; on it's own, the C++
+        // notes are rather incomplete.
 
 # ===============================================================================
 - Classes:
