@@ -26,16 +26,26 @@ class Main < Sinatra::Base
 
 private
   def load_reference(name)
-    @ref = Reference[name]
-    raise Sinatra::NotFound  if @ref.nil?
+    @page = Reference[name]
+    raise Sinatra::NotFound  if @page.nil?
 
     unless settings.development?
-      etag @ref.mtime
-      last_modified @ref.mtime
+      etag @page.mtime
+      last_modified @page.mtime
       cache_control :public, :max_age => 86400
     end
 
-    haml :home, {}, :content => @ref.content, :languages => @ref.languages
+    haml :home, {}, :content => @page.content, :languages => @page.languages
+  end
+end
+
+class Array
+  def each_hash(&blk)
+    each { |hash| hash.each &blk }
+  end
+
+  def map_hash(&blk)
+    map { |hash| hash.inject({}) { |a, (k,v)| a = yield(k, v) } }
   end
 end
 
