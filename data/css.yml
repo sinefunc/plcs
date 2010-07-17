@@ -8,6 +8,41 @@ languages:
 
 ---
 # ===============================================================================
+- Selectors:
+# ===============================================================================
+
+  - Basic selectors:
+      CSS: |
+        .class       { /* <a class='class'> */ }
+        #id          { /* <a id='id'>       */ }
+        div          { /* <div>             */ }
+        div#id       { /* <div id='id'>     */ }
+        div#id.class { /* <div id='id'
+                             class='class'> */ }
+
+        ul li       { }
+
+  - Pseudo-classes:
+      CSS: |
+        a:visited { }
+        a:link    { /* Not visited */ }
+        a:active  { /* On mouse down */ }
+        a:hover   { /* Only for <a> in IE6 */ }
+        a:focus   { }
+
+        li:first-child { }
+        li:last-child { }
+
+  - CSS2 selectors:
+      CSS: |
+        ul > li  { /* <li> directly inside <ul> */ }
+        h2 + ul  { /* <ul> after <h2> */ }
+
+        a[href="#"]    { /* <a href='#'> */ }
+        a[rel~="box"]  { /* <a rel='one box white'> */ }
+        a[lang|="en"]  { /* <a lag='en-us'> */ }
+
+# ===============================================================================
 - Text:
 # ===============================================================================
 

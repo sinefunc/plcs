@@ -198,4 +198,7 @@ ol.CodeRay li { white-space: pre }
 
 
 
-pre.css .CodeRay .ty { font-weight: normal; }
+pre.css .cl,
+pre.css .co,
+pre.css .ps,
+pre.css .ty { font-weight: normal; }
