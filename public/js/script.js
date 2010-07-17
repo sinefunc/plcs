@@ -76,11 +76,11 @@
 
       // Hide the unused table rows.
       $("tbody tr").each(function() {
-        var $tds   = $(this).find(selector),
-            $th    = $(this).find('th'),
-            text   = $tds.text();
+        var $tds    = $(this).find(selector),
+            $th     = $(this).find('th'),
+            isEmpty = ($tds.filter(':not(.empty)').length == 0);
 
-        if (text.match(/^\s*$/) != null) { $(this).addClass('hidden'); }
+        if (isEmpty) { $(this).addClass('hidden'); }
         else { $(this).removeClass('hidden'); }
       });
 
@@ -94,10 +94,11 @@
       // Hide unused columns.
       $("section").each(function() {
         for (i in langs) {
-          var lang = langs[i];
-          var $tds = $(this).find("td."+lang);
-          var $stuff = $(this).find("td."+lang+",th."+lang);
-          if ($tds.text().match(/^\s*$/) != null) {
+          var lang    = langs[i],
+              $tds    = $(this).find("td."+lang),
+              $stuff  = $tds.add("th."+lang),
+              isEmpty = ($tds.filter(':not(.empty)').length == 0);
+          if (isEmpty) {
             $stuff.addClass('unused');
           }
           else {
