@@ -2,7 +2,7 @@
 .preload { display: none; }
 
 /* Top */
-.selector { position: fixed; top: 0; left: 0; width: 100%; padding: 0; background: #eee; line-height: 30px; font-size: 8pt; color: #333; height: 30px; text-align: center; -webkit-box-shadow: 0 0 5px #888; -moz-box-shadow: 0 0 5px #888; }
+.selector { position: fixed; top: 0; left: 0; width: 100%; padding: 0; background: #eee; line-height: 30px; font-size: 8pt; color: #333; height: 30px; text-align: center; -webkit-box-shadow: 0 0 5px #888; -moz-box-shadow: 0 0 5px #888; z-index: 1; }
 .selector .tabs { float: left; margin-left: 5px; }
 .selector label { margin: 0; display: block; padding-left: 5px; float: left; }
 .selector label.active { background: #e0e0e0; }
