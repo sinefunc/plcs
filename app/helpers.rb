@@ -27,10 +27,11 @@ class Main
     end
 
     def lang_path(section, lang)
-      return "##{to_slug(lang)}"  if section == @page.name
-      section = ""  if section == "reference"
-      "/#{section}##{to_slug(lang)}"
-      #"/#{to_slug(lang)}"
+      if section == @page.name
+        "##{to_slug(lang)}"
+      else
+        "/#{to_slug(lang)}"
+      end
     end
   end
 end
