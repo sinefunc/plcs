@@ -110,6 +110,7 @@
       var languages = self.getLanguages();
       if (languages.length == 1) {
         $(document.body).addClass("compact");
+        $("#content").unmason();
         $("#content").masonry({ singleMode: true, itemSelector: 'section:not(.hidden)' });
       }
       else {
