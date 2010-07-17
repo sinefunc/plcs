@@ -10,13 +10,6 @@
         self.normalize();
       });
 
-      $("a[href=#beta]").live("click", function() {
-        $("label:hidden").show();
-        $(this).hide();
-        self.normalize();
-        return false;
-      });
-
       $("select[name=see-also]").live("change", function() {
         window.location = $(this).val();
       });

@@ -24,5 +24,11 @@ class Main
         "<script type='text/javascript' src='#{file}'></script>"
       end.join("\n")
     end
+
+    def lang_path(section, lang)
+      section = ""  if section == "reference"
+      "/#{section}##{to_slug(lang)}"
+      #"/#{to_slug(lang)}"
+    end
   end
 end

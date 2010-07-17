@@ -1021,6 +1021,10 @@ languages:
         fpath = 'dir/sub/file.txt'
         File.dirname(fpath)  #=> 'dir/sub'
         File.basename(fpath) #=> 'file.txt'
+
+        File.basename(fpath, '.txt')  #=> 'file'
+        File.basename(fpath, '.*')    #=> 'file'
+        File.extname(fpath)           #=> '.txt'
       Python: |
         fpath = 'dir/sub/file.txt'
         os.path.dirname(fpath)   #=> 'dir/sub'

@@ -5,9 +5,20 @@ class Reference
     File.exists?(ref.filename) ? ref : nil
   end
 
+  def self.all_languages
+    Dir[path('*.yml')].map do |file|
+      name = File.basename(file, '.yml')
+      { name => YAML::load_file(file)["languages"] }
+    end
+  end
+
+  def self.path(*a)
+    File.join([Main.root, "data", a].flatten)
+  end
+
   def initialize(name = 'reference')
     @name = name
-    @filename = File.join(Main.root, "data", "#{name}.yml")
+    @filename = self.class.path("#{name}.yml")
   end
 
   attr_reader :filename

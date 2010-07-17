@@ -5,14 +5,14 @@
       %label{:id => "#{lang_code}-checkbox"}
         %input{ :type => 'checkbox', :name => lang_code }/
         %a{:href => "##{lang_code}"}= language
-    %label.see-also{:style => 'display: none'}
+    %label.see-also
       %select{:name => 'see-also'}
         %option Also see...
-        -#%option{:value => "/"} Programming
-        %option{:value => "/markup"} Markup
-        %option{:value => "/css"} CSS
-    %a.more{:href => '#beta'}
-      %span= 'Show others'
+        - Reference.all_languages.each do |hash|
+          - hash.each do |section, langs|
+            %option{:disabled => '1'}= section
+            - langs.each do |lang|
+              %option{:value => lang_path(section, lang)}!= "&nbsp; &nbsp; #{lang}"
 
 - content.each do |hash|
   - hash.each do |section, features|
