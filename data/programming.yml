@@ -8,6 +8,7 @@ languages:
   - Python
   - PHP
   - JavaScript
+  - CoffeeScript
   - CPP
 
 ---
@@ -48,6 +49,10 @@ languages:
           this.meth = function() { /* ... */ }
           return this;
         };
+      CoffeeScript: |
+        class ClassName
+          meth: (args) ->
+            # ...
       CPP: |
         class ClassName {
         };
@@ -60,6 +65,8 @@ languages:
       PHP: |
         class ClassName extends Parent
       JavaScript: |
+      CoffeeScript: |
+        class ClassName extends Parent
       CPP: |
         class ClassName : public Parent {
         };
@@ -89,6 +96,9 @@ languages:
       JavaScript: |
         var instance = new C();
         var instance = new C(args);
+      CoffeeScript: |
+        instance: new ClassName
+        instance: new ClassName "args"
       CPP: |
         ClassName instance = ClassName();
 
@@ -180,6 +190,76 @@ languages:
           return parent::meth();
         }
       JavaScript: |
+
+# ===============================================================================
+- Basics:
+# ===============================================================================
+
+  - If-then-else:
+      Ruby: |
+        if x == y
+          # ...
+        elsif y == z and z == a
+          # ...
+        else
+          # ...
+        end
+
+        print "hi"  if foo.nil?
+        print "hi"  unless foo.empty?
+      Python: |
+        if x == y:
+          # ...
+        elif y == z and z == a:
+          # ...
+        else:
+          # ...
+      PHP: |
+        if ($x == $y) {
+          // ...
+        } else if (($y == $z) && ($z == $a)) {
+          // ...
+        } else {
+          // ...
+        }
+      JavaScript: |
+        if (x == y) {
+          // ...
+        } else if ((y == z) && (z == a)) {
+          // ...
+        } else {
+          // ...
+        }
+      CoffeeScript: |
+        if x == y
+          # ...
+        else if y == z and z == a
+          # ...
+        else
+          # ...
+
+        alert "foo" if x == y
+
+      CPP: |
+        if (x == y) {
+          // ...
+        } elseif ((y == z) && (z == a)) {
+          // ...
+        } else {
+          // ...
+        }
+
+  - Switch:
+      CoffeeScript: |
+        switch day
+          when "Mon" then goToWork()
+          when "Tue" then
+            goEat()
+            goSleep()
+          else conquerTheWorld()
+
+  - Loops:
+      CoffeeScript: |
 
 # ===============================================================================
 - Variables:
@@ -659,6 +739,8 @@ languages:
   - Length:
       Ruby: |
         arr.size #=> 3
+        arr.empty?
+        arr.any?
       Python: |
         len(arr) #=> 3
       PHP: |
@@ -1057,11 +1139,25 @@ languages:
 - Exceptions:
 # ===============================================================================
 
+  - Exception throwing:
+      Ruby: |
+        raise StandardError
+      Python: |
+        raise NameError('Hello')
+      PHP: |
+        throw new Exception('Hello');
+      JavaScript: |
+        throw new Exception('Hello');
+      CPP: |
+        void my_function() throw() {
+          Exception e();
+          throw e;
+        }
+
   - Exception handling:
       Ruby: |
         begin
           # do things
-          raise StandardError
         rescue StandardError => e
           # handle the exception
           retry
@@ -1075,7 +1171,6 @@ languages:
       Python: |
         try:
           # do things
-          raise NameError('Hello')
         except NameError as e:
           # handle the exception
         else:
@@ -1088,7 +1183,6 @@ languages:
       PHP: |
         try {
           // do things
-          throw new Exception('Hello');
         } catch (Exception $e) {
           // handle the exception
         }
@@ -1100,11 +1194,6 @@ languages:
           // handle the exception
         }
       CPP: |
-        void my_function() throw() {
-          Exception e();
-          throw e;
-        }
-
         try {
           // do things
           my_function();
@@ -1274,3 +1363,35 @@ languages:
         // JQuery:
         $node.parents("form");
         $node.find(">*");
+
+# ===============================================================================
+- Other notes:
+# ===============================================================================
+
+  - Installing:
+      CoffeeScript: |
+        # http://jashkenas.github.com/coffee-script/
+        sudo bin/cake install
+        brew install coffeescript # with homebrew
+
+  - Running:
+      Ruby: |
+        ruby file.rb
+        irb # REPL shell
+      Python: |
+        python file.py
+        python # REPL shell
+      CoffeeScript: |
+        coffee -c path/to/script.coffee
+        coffee --interactive # REPL shell
+        coffee --watch --lint script.coffee
+        coffee --print js/*.coffee > all.js
+      CPP: |
+        # Assuming GNU C++
+        gcc foo.cpp -o foo.o
+        ld -o foo foo.o
+        ./foo
+  
+
+
+

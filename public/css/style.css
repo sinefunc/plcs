@@ -74,6 +74,8 @@ td.empty  { opacity: 0.5; }
 th.unused { opacity: 0.1; }
 td.unused { opacity: 0.1; }
 
+/* Beta! */
+#coffescript-checkbox { display: none; }
 /*
 body.compact th,
 body.compact tr,
