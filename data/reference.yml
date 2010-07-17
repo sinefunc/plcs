@@ -15,7 +15,7 @@ languages:
 - Notes:
 # ===============================================================================
 
-  - Notes:
+  - '':
       CPP: |
         /* C++ is only here as a comparison to other
          * languages; on it's own, the C++ notes are
