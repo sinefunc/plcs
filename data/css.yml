@@ -8,6 +8,15 @@ languages:
 
 ---
 # ===============================================================================
+- Basics:
+# ===============================================================================
+
+  - Linking in HTML:
+      CSS: |
+        <link rel="stylesheet" media="all"
+              type="text/css" href="style.css" />
+
+# ===============================================================================
 - Selectors:
 # ===============================================================================
 
@@ -20,7 +29,7 @@ languages:
         div#id.class { /* <div id='id'
                              class='class'> */ }
 
-        ul li       { }
+        ul li        { /* <li> inside <ul> */ }
 
   - Pseudo-classes:
       CSS: |
@@ -30,17 +39,41 @@ languages:
         a:hover   { /* Only for <a> in IE6 */ }
         a:focus   { }
 
-        li:first-child { }
-        li:last-child { }
+        /* CSS3 */
+        input:enabled  { }
+        /* disabled, checked */
 
-  - CSS2 selectors:
+# ===============================================================================
+- Advanced selectors:
+# ===============================================================================
+
+  - Structural pseudo-classes:
       CSS: |
+        /* CSS3 */
+        li:first-child        { }
+        li:last-child         { }
+        li:nth-child(3)       { }
+        li:nth-last-child(3)  { }
+        li:empty              { }
+        /* nth-of-type(n), first-of-type, last-of-type,
+         * only-of-type, ... */
+
+  - Relationship selectors:
+      CSS: |
+        /* CSS2 */
         ul > li  { /* <li> directly inside <ul> */ }
         h2 + ul  { /* <ul> after <h2> */ }
 
+  - Attribute selectors:
+      CSS: |
+        /* CSS2 */
         a[href="#"]    { /* <a href='#'> */ }
         a[rel~="box"]  { /* <a rel='one box white'> */ }
         a[lang|="en"]  { /* <a lag='en-us'> */ }
+
+        /* CSS3 */
+        a[rel$="box"]  { /* <a rel='little-box'> */ }
+        a[rel*="box"]  { /* <a rel='myboxofthings'> */ }
 
 # ===============================================================================
 - Text:
@@ -77,6 +110,7 @@ languages:
         background-color:    transparent;
         background-image:    url(image.gif);
 
+        background-attachment: scroll; /* fixed */
         background-repeat:   no-repeat;
         /* repeat-x, repeat-y */
 
@@ -126,3 +160,15 @@ languages:
 
         /* Firefox 1.0, Safari 3.0, Chrome,
          * Opera 10.5, IE9 */
+
+# ===============================================================================
+- Lists:
+# ===============================================================================
+
+  - List:
+      CSS: |
+        list-style-type: disc;
+        list-style-position: inside; /* outside */
+        list-style-image: url(bullet.gif);
+
+        list-style: none;

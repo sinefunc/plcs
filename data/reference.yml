@@ -360,7 +360,7 @@ languages:
         obj.send :method_name, arg1, arg2
         # obj.__send__ is also available
       Python: |
-        obj.getattr('method_name')(arg1, arg2)
+        getattr(obj, 'method_name')(arg1, arg2)
       PHP: |
         $obj->{'method_name'}(arg1, arg2);
       JavaScript: |
@@ -569,7 +569,7 @@ languages:
       PHP: |
         count(arr) //=> 3
       JavaScript: |
-        arr.count //=> 3
+        arr.length //=> 3
 
   - Adding items:
       Ruby: |
