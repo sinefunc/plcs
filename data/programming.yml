@@ -1054,6 +1054,66 @@ languages:
         Math.PI //=> 3.14159...
 
 # ===============================================================================
+- Exceptions:
+# ===============================================================================
+
+  - Exception handling:
+      Ruby: |
+        begin
+          # do things
+          raise StandardError
+        rescue StandardError => e
+          # handle the exception
+          retry
+        ensure
+          # ...
+        end
+
+        # Also:
+        rescue => e
+        rescue StandardError
+      Python: |
+        try:
+          # do things
+          raise NameError('Hello')
+        except NameError as e:
+          # handle the exception
+        else:
+          # ...
+        finally:
+          # ...
+
+        # Also:
+        except NameError:
+      PHP: |
+        try {
+          // do things
+          throw new Exception('Hello');
+        } catch (Exception $e) {
+          // handle the exception
+        }
+      JavaScript: |
+        try {
+          // do things
+        }
+        catch (Exception e) {
+          // handle the exception
+        }
+      CPP: |
+        void my_function() throw() {
+          Exception e();
+          throw e;
+        }
+
+        try {
+          // do things
+          my_function();
+        }
+        catch (Exception& e) {
+          // handle the exception
+        }
+
+# ===============================================================================
 - Overriding:
 # ===============================================================================
 
