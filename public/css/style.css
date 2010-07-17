@@ -58,9 +58,10 @@ thead th { background: #888; color: #fff; padding: 0; text-align: center; font-s
 thead th.heading { background: transparent; }
 
 /* Colors */
-td.ruby   { background: #f7f0f0; }
-td.python { background: #edfaf0; }
-td.php    { background: #f0f3fa; }
+td.ruby       { background: #f7f0f0; }
+td.python     { background: #e8f7e8; }
+td.php        { background: #e4f0f8; }
+td.javascript { background: #eeeaf8; }
 
 /*
 .even td.ruby   { background: #eae6e6; }
