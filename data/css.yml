@@ -8,9 +8,86 @@ languages:
 
 ---
 # ===============================================================================
-- Fonts:
+- Text:
 # ===============================================================================
 
-  - Fonts:
+  - Font styles:
       CSS: |
-        Yeah
+        font-weight:     bold;   /* normal */
+        font-style:      italic; /* normal */
+        text-decoration: none;   /* underline */
+
+  - Metrics:
+      CSS: |
+        font-size:      0.9em;
+        line-height:    1.5em;
+        letter-spacing: 1px;
+
+  - Font styles:
+      CSS: |
+        font-family: helvetica;
+        font-family: 'lucida grande';
+        /* serif|sans-serif|monospace */
+
+        /* Short hand: */
+        font: 0.9em/1.5em bold arial;
+
+# ===============================================================================
+- Background:
+# ===============================================================================
+
+  - Background:
+      CSS: |
+        background-color:    #fff;
+        background-color:    transparent;
+        background-image:    url(image.gif);
+
+        background-repeat:   no-repeat;
+        /* repeat-x, repeat-y */
+
+        background-position: 0 0;
+        /* left|center|right top|center|bottom */
+
+# ===============================================================================
+- Box model:
+# ===============================================================================
+
+  - Margin/padding:
+      CSS: |
+        margin: 4px;
+        margin: 4px 8px;       /* vert, horiz */
+        margin: 4px 8px 0 8px; /* clockwise from top */
+
+        padding: 4px; /* Same shorthand as margin */
+  - Border:
+      CSS: |
+        border: solid 1px #333;
+        /* solid|dotted|dashed */
+
+# ===============================================================================
+- CSS2 and CSS3:
+# ===============================================================================
+
+  - Box shadow:
+      CSS: |
+        /* ---------------- X - Y - size - color */
+        box-shadow:         0px 0px  4px   #fff;
+        -moz-box-shadow:    0px 0px  4px   #fff;
+        -webkit-box-shadow: 0px 0px  4px   #fff;
+
+        /* Firefox 3.5, Safari 3.0, Chrome,
+         * Opera 10.5, IE9 */
+
+  - Border radius:
+      CSS: |
+        border-radius:         4px;
+        -moz-border-radius:    4px;
+        -webkit-border-radius: 4px;
+
+        /* Specific corner: */
+        border-bottom-left-radius:         4px;
+        -moz-border-radius-bottomleft:     4px;
+        -webkit-border-bottom-left-radius: 4px;
+
+        /* Firefox 1.0, Safari 3.0, Chrome,
+         * Opera 10.5, IE9 */
