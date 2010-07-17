@@ -57,7 +57,7 @@ td.php    { background: #f0f3fa; }
 
 pre { font-family: 'lucida console', monospace; font-size: 11px; text-indent: -3px; letter-spacing: -1px; }
 td.empty  { opacity: 0.5; }
-th.unused { opacity: 0.2; }
+th.unused { opacity: 0.1; }
 td.unused { opacity: 0.1; }
 
 /* LOL */
