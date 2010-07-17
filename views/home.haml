@@ -1,10 +1,16 @@
 %div.selector.preload
-  - languages.each do |language|
-    - lang_code = to_slug(language)
-    .tabs
+  .tabs
+    - languages.each do |language|
+      - lang_code = to_slug(language)
       %label{:id => "#{lang_code}-checkbox"}
         %input{ :type => 'checkbox', :name => lang_code }/
         %a{:href => "##{lang_code}"}= language
+    %label.see-also{:style => 'display: none'}
+      %select{:name => 'see-also'}
+        %option Also see...
+        -#%option{:value => "/"} Programming
+        %option{:value => "/markup"} Markup
+        %option{:value => "/css"} CSS
     %a.more{:href => '#beta'}
       %span= 'Show others'
 

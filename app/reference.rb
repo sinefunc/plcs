@@ -1,17 +1,32 @@
 # The Reference model
 class Reference
-  attr_accessor :content
-  attr_accessor :languages
-
-  def filename
-    File.join(Main.root, 'reference.yml')
+  def self.[](name = 'reference')
+    ref = Reference.new(name)
+    File.exists?(ref.filename) ? ref : nil
   end
+
+  def initialize(name = 'reference')
+    @name = name
+    @filename = File.join(Main.root, "data", "#{name}.yml")
+  end
+
+  attr_reader :filename
+  attr_reader :name
 
   def mtime
     File.mtime(filename)
   end
 
-  def initialize
+  def content
+    @content || lazyload[:content]
+  end
+
+  def languages
+    @languages || lazyload[:languages]
+  end
+
+private
+  def lazyload
     require "yaml"
     stream = YAML::load_stream(File.open(filename))
     @languages = stream.documents[0]['languages']
@@ -28,5 +43,8 @@ class Reference
         end; a
       end
     end
+
+    { :content => @content,
+      :languages => @languages }
   end
 end

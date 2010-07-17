@@ -10,7 +10,10 @@ require "coderay"
 class Main < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :run, lambda { $0 == __FILE__ }
-  set :reference_file, File.join(File.dirname(__FILE__), 'reference.yml')
+
+  get %r{/(reference|css|markup)} do |ref|
+    load_reference(ref)
+  end
 
   get '/:languages' do |langs|
     langs.gsub!(' ', '+')
@@ -18,7 +21,13 @@ class Main < Sinatra::Base
   end
 
   get '/' do
-    @ref = Reference.new
+    load_reference('reference')
+  end
+
+private
+  def load_reference(name)
+    @ref = Reference[name]
+    raise Sinatra::NotFound  if @ref.nil?
 
     unless settings.development?
       etag @ref.mtime

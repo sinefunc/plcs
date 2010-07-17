@@ -58,8 +58,6 @@ pre { font-family: 'lucida console', monospace; font-size: 11px; text-indent: -3
 td.empty  { opacity: 0.5; }
 
 /* LOL */
-#markdown-checkbox,
-#rst-checkbox,
 #cpp-checkbox { display: none; }
 
 /*

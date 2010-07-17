@@ -2,15 +2,11 @@
   var RF = window.RF;
 
   $.extend(RF, {
-    // Options
-    default_languages: ['ruby'],
-
-    // Methods
     init: function() {
       var self = this;
 
       $.hashListen('', function() {
-        self.loadLanguages(self.default_languages);
+        self.loadLanguages([self.languages[0]]);
         self.normalize();
       });
 
@@ -19,6 +15,10 @@
         $(this).hide();
         self.normalize();
         return false;
+      });
+
+      $("select[name=see-also]").live("change", function() {
+        window.location = $(this).val();
       });
 
       $.hashListen('all', function() {

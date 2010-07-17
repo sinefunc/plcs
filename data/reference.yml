@@ -9,8 +9,6 @@ languages:
   - PHP
   - JavaScript
   - CPP
-  - Markdown
-  - RST
 
 ---
 # ===============================================================================
@@ -97,7 +95,7 @@ languages:
         if ($instance instanceof ClassName)
         if (is_instance_of($instance, ClassName))
       CPP: |
-        ClassName* ptr =
+        void* ptr =
           dynamic_cast<ClassName*>(instance_ptr);
         if (ptr) { /* success */ }
 
@@ -1107,22 +1105,3 @@ languages:
         // JQuery:
         $node.parents("form");
         $node.find(">*");
-
-# ===============================================================================
-- Markup reference:
-# ===============================================================================
-
-  - Inline styles:
-      Markdown: |
-        **bold**
-        *italic*
-      RST: |
-        **bold**
-
-  - Headings:
-      Markdown: |
-        Heading
-        =======
-      RST: |
-        Heading
-        =======
