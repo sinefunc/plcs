@@ -10,8 +10,7 @@
 .selector label.active a { color: #333; }
 .selector label a { color: #333; font-weight: bold; text-decoration: none; display: inline-block; padding-right: 10px; }
 
-.selector label.see-also { position: absolute; right: 5px; top: 0px; opacity: 0; }
-.selector label.see-also:hover { opacity: 1; }
+.selector label.see-also { position: absolute; right: 5px; top: 0px; }
 
 /* Checkboxes */
 .selector label input { opacity: 0.2; }
