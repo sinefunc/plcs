@@ -3,6 +3,8 @@
 
   $.extend(RF, {
     init: function() {
+      $(document.body).removeClass('preload');
+
       var self = this;
 
       $.hashListen('', function() {
