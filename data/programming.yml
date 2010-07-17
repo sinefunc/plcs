@@ -280,6 +280,7 @@ languages:
         myvar
       CPP: |
         int myvar = 1;
+        myvar
 
   - Global variables:
       Ruby: |
@@ -290,8 +291,6 @@ languages:
         $gvar = 1;
       JavaScript: |
         window.gvar = 1;
-      CPP: |
-        int myvar = 1;
 
   - Instance variables:
       Ruby: |
@@ -1381,6 +1380,9 @@ languages:
       Python: |
         python file.py
         python # REPL shell
+      PHP: |
+        php file.php
+        php -a # REPL shell
       CoffeeScript: |
         coffee -c path/to/script.coffee
         coffee --interactive # REPL shell
@@ -1391,7 +1393,3 @@ languages:
         gcc foo.cpp -o foo.o
         ld -o foo foo.o
         ./foo
-  
-
-
-
