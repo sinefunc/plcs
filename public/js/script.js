@@ -14,6 +14,7 @@
 
       $("select[name=see-also]").live("change", function() {
         window.location = $(this).val();
+        $(this).val('');
       });
 
       $.hashListen('all', function() {

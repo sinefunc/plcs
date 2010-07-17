@@ -7,7 +7,7 @@
         %a{:href => "##{lang_code}"}= language
     %label.see-also
       %select{:name => 'see-also'}
-        %option Also see...
+        %option{:value => ''} Also see...
         - Reference.all_languages.each do |hash|
           - hash.each do |section, langs|
             %option{:disabled => '1'}= section
