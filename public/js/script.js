@@ -51,6 +51,14 @@
             .parents('label.active').removeClass('active').end()
             .attr('checked', 0);
         }
+
+        if (languages.length > 1) {
+          $('label.active').removeClass('active');
+          $('.tabs').addClass('multiple');
+        }
+        else {
+          $('.tabs').removeClass('multiple');
+        }
       }
 
       // Compact mode.
