@@ -95,10 +95,10 @@
           var $tds = $(this).find("td."+lang);
           var $stuff = $(this).find("td."+lang+",th."+lang);
           if ($tds.text().trim() == '') {
-            $stuff.css({'opacity': '0.2'});
+            $stuff.addClass('unused');
           }
           else {
-            $stuff.css({'opacity': '1.0'});
+            $stuff.removeClass('unused');
           }
         }
       });

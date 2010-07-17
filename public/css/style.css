@@ -27,6 +27,7 @@ h2 { text-align: center; font-size: 1.1em; margin: 0; padding: 30px 0 0 0; }
 table { margin: 0 auto; table-layout: fixed; border-collapse: separate; border-spacing: 0 8px; }
 th, td { text-align: left; vertical-align: top; padding: 10px 5px; }
 
+
 /* Features */
 tbody th { text-align: right; padding-top: 14px; }
 tbody h4 { width: 175px; margin: 0; padding: 0; font-size: 0.8em; font-weight: normal; }
@@ -56,6 +57,8 @@ td.php    { background: #f0f3fa; }
 
 pre { font-family: 'lucida console', monospace; font-size: 11px; text-indent: -3px; letter-spacing: -1px; }
 td.empty  { opacity: 0.5; }
+th.unused { opacity: 0.2; }
+td.unused { opacity: 0.1; }
 
 /* LOL */
 #cpp-checkbox { display: none; }
