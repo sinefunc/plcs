@@ -69,7 +69,7 @@ languages:
         /* CSS2 */
         a[href="#"]    { /* <a href='#'> */ }
         a[rel~="box"]  { /* <a rel='one box white'> */ }
-        a[lang|="en"]  { /* <a lag='en-us'> */ }
+        a[lang|="en"]  { /* <a lang='en-us'> */ }
 
         /* CSS3 */
         a[rel$="box"]  { /* <a rel='little-box'> */ }
@@ -111,10 +111,10 @@ languages:
         background-image:    url(image.gif);
 
         background-attachment: scroll; /* fixed */
-        background-repeat:   no-repeat;
+        background-repeat:     no-repeat;
         /* repeat-x, repeat-y */
 
-        background-position: 0 0;
+        background-position: center 5px;
         /* left|center|right top|center|bottom */
 
 # ===============================================================================

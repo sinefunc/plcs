@@ -16,7 +16,7 @@ class Main < Sinatra::Base
     redirect '/cpp', 301
   end
 
-  get %r{/(reference|css|markup)} do |ref|
+  get %r{/(programming|css|markup)} do |ref|
     load_reference(ref)
   end
 
@@ -24,7 +24,7 @@ class Main < Sinatra::Base
     Reference.all_languages.each_hash do |section, langs|
       langs.map! { |str| to_slug(str) }
       if langs.include?(params[:language])
-        section = ''  if section == 'reference'
+        section = ''  if section == 'programming'
         redirect "/#{to_slug(section)}##{to_slug(params[:language])}", 301
       end
     end
@@ -32,7 +32,7 @@ class Main < Sinatra::Base
   end
 
   get '/' do
-    load_reference('reference')
+    load_reference('programming')
   end
 
 private

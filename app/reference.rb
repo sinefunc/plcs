@@ -1,6 +1,6 @@
 # The Reference model
 class Reference
-  def self.[](name = 'reference')
+  def self.[](name)
     ref = Reference.new(name)
     File.exists?(ref.filename) ? ref : nil
   end
@@ -16,7 +16,7 @@ class Reference
     File.join([Main.root, "data", a].flatten)
   end
 
-  def initialize(name = 'reference')
+  def initialize(name)
     @name = name
     @filename = self.class.path("#{name}.yml")
   end
