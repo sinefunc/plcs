@@ -114,10 +114,6 @@ languages:
       PHP: |
         if ($instance instanceof ClassName)
         if (is_instance_of($instance, ClassName))
-      CPP: |
-        void* ptr =
-          dynamic_cast<ClassName*>(instance_ptr);
-        if (ptr) { /* success */ }
 
   - Getting the class:
       Ruby: |
@@ -243,7 +239,7 @@ languages:
       CPP: |
         if (x == y) {
           // ...
-        } elseif ((y == z) && (z == a)) {
+        } else if ((y == z) && (z == a)) {
           // ...
         } else {
           // ...
