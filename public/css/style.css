@@ -1,3 +1,11 @@
+/* Common */
+html, body { margin: 0; padding: 0; }
+body { font-size: 11pt; font-family: helvetica, arial, sans-serif; line-height: 13pt; }
+body { padding-top: 40px; } 
+h2 { text-align: center; font-size: 1.1em; margin: 0; padding: 30px 0 0 0; }
+table { margin: 0 auto; table-layout: fixed; border-collapse: separate; border-spacing: 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 5px; }
+
 .hidden { display: none; }
 .preload { display: none; }
 
@@ -9,6 +17,8 @@
 .selector label.active { background: #e0e0e0; }
 .selector label.active a { color: #333; }
 .selector label a { color: #333; font-weight: bold; text-decoration: none; display: inline-block; padding-right: 10px; }
+.selector a:focus,
+.selector a:active { outline: 0; }
 
 .selector label.see-also { position: absolute; right: 5px; top: 0px; }
 
@@ -24,19 +34,12 @@ html, body { height: 100%; }
 html body.preload { background: url(/images/loading.gif) center center no-repeat; }
 
 /* Content */
-#content { overflow: hidden; }
+#content:after { clear: both; }
 xbody.compact #content { margin: 0 auto; width: 1100px; }
 
 /* Compact mode (one only) */
 body.compact section { float: left; margin-bottom: 20px; }
 body.compact thead th { text-indent: -9999px; }
-
-html, body { margin: 0; padding: 0; }
-body { font-size: 11pt; font-family: helvetica, arial, sans-serif; line-height: 13pt; }
-body { padding-top: 40px; } 
-h2 { text-align: center; font-size: 1.1em; margin: 0; padding: 30px 0 0 0; }
-table { margin: 0 auto; table-layout: fixed; border-collapse: separate; border-spacing: 0 8px; }
-th, td { text-align: left; vertical-align: top; padding: 10px 5px; }
 
 /* Features */
 tbody th { text-align: right; padding-top: 14px; }
