@@ -55,6 +55,10 @@ languages:
             # ...
       CPP: |
         class ClassName {
+        public:
+            int meth(int args) {
+                // ...
+            }
         };
 
   - Class inheritance:

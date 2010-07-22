@@ -5,10 +5,18 @@ class Reference
     File.exists?(ref.filename) ? ref : nil
   end
 
+  # Returns a hash with the keys being the reference names,
+  # and the values are arrays of language strings.
   def self.all_languages
     Dir[path('*.yml')].map do |file|
       name = File.basename(file, '.yml')
       { name => YAML::load_file(file)["languages"] }
+    end
+  end
+
+  def self.all
+    Dir[path('*.yml')].map do |file|
+      self[File.basename(file, '.yml')]
     end
   end
 
@@ -23,6 +31,10 @@ class Reference
 
   attr_reader :filename
   attr_reader :name
+
+  def to_s
+    name
+  end
 
   def mtime
     File.mtime(filename)

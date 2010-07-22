@@ -10,14 +10,21 @@ require "coderay"
 class Main < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :run, lambda { $0 == __FILE__ }
+end
 
+Dir['app/**/*.rb'].each { |file| require File.join('.', file) }
+
+class Main
   # Alias for C++
   get '/c  ' do
     redirect '/cpp', 301
   end
 
-  get %r{/(programming|css|markup)} do |ref|
-    load_reference(ref)
+  # Refs (/programming, /css, etc)
+  Reference.all.each do |ref|
+    get "/#{ref}" do
+      load_reference(ref)
+    end
   end
 
   get '/:language' do
@@ -60,5 +67,4 @@ class Array
   end
 end
 
-Dir['app/**/*.rb'].each { |file| require File.join('.', file) }
 Main.run! if Main.run?

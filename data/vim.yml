@@ -1,0 +1,26 @@
+---
+languages:
+ - VIM
+
+---
+- VIM scripting:
+  
+  - Variables:
+      VIM: |
+        let g:something = ''   " Global
+        let s:something = ''   " Script
+        echo &rows             " Option
+
+  - Functions:
+      VIM: |
+        function! s:myFunction()
+        end function
+
+  - Command:
+      VIM: |
+        command! MyCommand :call <SID>myFunction()
+
+  - Binding:
+      VIM: |
+        map <C-c> :MyCommand<CR>
+
