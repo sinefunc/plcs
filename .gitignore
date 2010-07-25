@@ -1,25 +1,25 @@
-## MAC OS
+# Mac OS
 .DS_Store
 
-## TEXTMATE
+# Textmate
 *.tmproj
 tmtags
 
-## EMACS
+# Emacs
 *~
 \#*
 .\#*
 
-## VIM
+# VIM
 *.swp
 *.swo
 *.swn
 
-## PROJECT::GENERAL
-coverage
-rdoc
-pkg
+# Project (general)
+/config/appconfig.yml
+/lib/nano/recipes
+/vendor/*/vendor
+/tmp
+/*.log
 
-## PROJECT::SPECIFIC
-# public
-.rvmrc
+# Others

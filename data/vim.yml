@@ -3,18 +3,42 @@ languages:
  - VIM
 
 ---
-- VIM scripting:
+# ===============================================================================
+- Variables:
+# ===============================================================================
   
-  - Variables:
+  - Local variables:
+      VIM: |
+        let myvar = 1
+        echo myvar
+
+  - Global variables:
       VIM: |
         let g:something = ''   " Global
-        let s:something = ''   " Script
-        echo &rows             " Option
+        let s:something = ''   " Script-global
+
+  - VIM options:
+      VIM: |
+        execute ':set rows = ' + my_rows
+        let &rows = my_rows    " Same as above
+        echo &rows
+
+# ===============================================================================
+- Functions:
+# ===============================================================================
 
   - Functions:
       VIM: |
         function! s:myFunction()
         end function
+
+# ===============================================================================
+- VIM scripting:
+# ===============================================================================
+
+  - Executing commands:
+      VIM: |
+        execute 'wq'
 
   - Command:
       VIM: |

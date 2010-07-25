@@ -1,8 +1,13 @@
-haml 2.2.22 git://github.com/nex3/haml.git
+# Core
+monk-glue git://github.com/sinefunc/glue.git
 rack 1.1.0 git://github.com/rack/rack.git
 sinatra 1.0 git://github.com/sinatra/sinatra.git
-treetop 1.4.5
+rack-test 0.5.3 (test) git://github.com/brynary/rack-test.git
+
+# Extras
+haml 3.0.13
+less 1.2.21
+treetop 1.4.8
 polyglot 0.3.1
 mutter 0.5.3
-less 1.2.21 git://github.com/cloudhead/less.git
 coderay 0.9.3
