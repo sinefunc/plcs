@@ -792,7 +792,7 @@ languages:
       Python: |
         if 2 in [1, 2, 3]:
       PHP: |
-        if (in_array(2, array(1, 2, 3)) {}
+        if (in_array(2, array(1, 2, 3))) {}
       JavaScript: |
         if ([1, 2, 3].indexOf(2) != -1) {}
 
