@@ -87,7 +87,7 @@ languages:
         // Be sure to use `virtual public` if they
         // share ancestors
 
-  - Instanciation:
+  - Instantiation:
       Ruby: |
         instance = C.new
         instance = C.new(args)
